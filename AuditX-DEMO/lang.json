@@ -1,0 +1,37 @@
+{
+  "en": {
+    "lblSystem": "Select SAP System",
+    "lblControl": "Select ITGC Control",
+    "btnExecute": "Execute",
+    "btnGenerateWordReport": "Generate Report",
+    "lblUsername": "Enter User ID",
+    "lblPassword": "Enter Password",
+    "lblReportStart": "Report Start Date",
+    "lblReportEnd": "Report End Date",
+    "lblReportMonth": "Report Month",
+    "lblPath": "Report Path",
+    "lblDescription": "Control Description",
+    "lblSystemId": "System ID",
+
+    "ToolTip_btnExecute": "Click to execute the Audit",
+    "MsgBox_LoginRequired": "Please enter both username and password."
+
+  },
+  "de": {
+    "lblSystem": "SAP-System auswählen",
+    "lblControl": "ITGC-Kontrolle auswählen",
+    "btnExecute": "Ausführen",
+    "btnGenerateWordReport": "Bericht Generieren",
+    "lblUsername": "Benutzer-ID eingeben",
+    "lblPassword": "Passwort eingeben",
+    "lblReportStart": "Berichtsstartdatum",
+    "lblReportEnd": "Berichtsenddatum",
+    "lblReportMonth": "Berichtsmonat",
+    "lblPath": "Berichtspfad",
+    "lblDescription": "Kontrollbeschreibung",
+    "lblSystemId": "System-ID",
+  
+    "ToolTip_btnExecute": "Klicken Sie, um das Audit auszuführen",
+    "MsgBox_LoginRequired": "Bitte Benutzername und Passwort eingeben."
+  }
+}

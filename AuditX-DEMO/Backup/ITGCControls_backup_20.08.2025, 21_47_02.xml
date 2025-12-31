@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ITGCControls>
+  <Row>
+    <ControlRef>ITGC01</ControlRef>
+    <ControlDefinition>SAPOSS Enabling Audit Abhinav</ControlDefinition>
+    <Description>Review of OSS connection and related change logs to ensure only the correct system is enabled for SAP support.</Description>
+    <Risk>If SAPOSS access is enabled on unintended systems, it may allow unauthorized remote access by SAP or third parties, leading to potential data breaches or system compromise.</Risk>
+    <ControlAction>Collect the ticket and approval email.</ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC02</ControlRef>
+    <ControlDefinition>Client ‘Opening’ Audit</ControlDefinition>
+    <Description>Monitoring for unauthorized client openings in production systems.</Description>
+    <Risk>An open client allows unrestricted configuration and data changes, bypassing change management processes and leading to potential fraud, data corruption, or audit failure.</Risk>
+    <ControlAction>Check 1: Check if the client is opened or closed currently
+Step  1: Execute the Transaction SCC4 to check if the client is opened or closed currently 
+Step  2: Select Utilities and then select change logs 
+Step  3: Please select the Start Date and End Date and Click On execute button
+Duration: 01 November 2024, 00:00:00 To 30 November 2024, 23:59:59 
+Step  4: Comment: No Client Opening happened during November, 2024” Month 
+
+Check 2: User having access to open the productive system via client settings SCC4
+S_TCODE: SCC4
+and
+2.a. S_TABU_CLI: X 
+2.b. S_TABU_DIS: 02, SS 
+2.c. S_TABU_NAM: 02, T000</ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC03</ControlRef>
+    <ControlDefinition>Firefighter ID Usage Logs Review</ControlDefinition>
+    <Description>Review of emergency user ID (FFID) usage for legitimacy and completeness.</Description>
+    <Risk>Misuse or unmonitored use of emergency access can lead to untraceable high-risk changes, potentially resulting in financial loss, system manipulation, or compliance violations.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC04</ControlRef>
+    <ControlDefinition>Critical Transaction Usages in Production (CDHDR Report: SA38, SE38, SE80, SAT, EWFM, EWFZ, OODR, TBC1, FA39, START_REPORT)</ControlDefinition>
+    <Description>Monitoring execution of sensitive transactions (e.g., SA38, SE38) in production systems.</Description>
+    <Risk>Execution of critical transactions by unauthorized users can compromise system integrity, expose sensitive data, or disrupt business operations.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC05</ControlRef>
+    <ControlDefinition>SAP Transport and Change (Charm)</ControlDefinition>
+    <Description>Assessment of the transport management and change approval process.</Description>
+    <Risk>Poorly controlled change transport processes can lead to unauthorized or erroneous changes in production, causing system outages or data integrity issues.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC06</ControlRef>
+    <ControlDefinition>Developer Key/Access in Production</ControlDefinition>
+    <Description>Identification of developer access (e.g., debug, change programs) in live environments.</Description>
+    <Risk>Developers with production access can bypass the standard development lifecycle, introduce unauthorized code, and potentially exploit system vulnerabilities.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC07</ControlRef>
+    <ControlDefinition>List of Users Having SAP_ALL and SAP_NEW Access for User type A(Dialog) and S(Service)</ControlDefinition>
+    <Description>Identification of users with unrestricted profiles (SAP_ALL, SAP_NEW).</Description>
+    <Risk>These profiles override all security controls. If assigned inappropriately, they present a high risk of data manipulation, fraud, or complete system takeover.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC08</ControlRef>
+    <ControlDefinition>List of Users having Table Maintenance Access in Production</ControlDefinition>
+    <Description>Identification of users with access to maintain SAP tables directly in production.</Description>
+    <Risk>Direct table changes may bypass application-level controls, leading to data inconsistencies, unauthorized changes, and audit exceptions.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC09</ControlRef>
+    <ControlDefinition>Users are authorized to execute programs based on their job responsibilities.</ControlDefinition>
+    <Description>Review of user access to execute custom and standard SAP programs.</Description>
+    <Risk>Unjustified execution access can be used to run unauthorized or sensitive reports and programs, potentially exposing or altering sensitive business data.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC10</ControlRef>
+    <ControlDefinition>Ability to alter security configuration settings</ControlDefinition>
+    <Description>Users with access to create/modify users, roles, and security settings in production.</Description>
+    <Risk>These privileges can be used to escalate access, override controls, or create unauthorized users, compromising system security and segregation of duties.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC11</ControlRef>
+    <ControlDefinition>Ability to import transports to production environment</ControlDefinition>
+    <Description>Identification of users who can directly import transports into production.</Description>
+    <Risk>Direct transport imports by unauthorized users can bypass testing and approval processes, leading to unstable environments and increased operational risk.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC12</ControlRef>
+    <ControlDefinition>Ability to perform job administration functions (Maintenance) – SM37 with Admin Access</ControlDefinition>
+    <Description>Access to monitor, schedule, and manage background jobs.</Description>
+    <Risk>Inappropriate access may allow users to stop, reschedule, or manipulate critical business jobs, resulting in operational disruptions or data processing failures.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC13</ControlRef>
+    <ControlDefinition>Ability to change password configuration settings – RZ10/RZ11 Change access</ControlDefinition>
+    <Description>Access to change global password settings and profiles.</Description>
+    <Risk>Weakening password parameters (e.g., complexity, expiry) can increase exposure to brute-force attacks, reducing the overall security posture.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC14</ControlRef>
+    <ControlDefinition>Password Status for the below default SAP ID's</ControlDefinition>
+    <Description>Review of status and password control for standard SAP IDs.</Description>
+    <Risk>These IDs are widely known and targeted; if left active with default credentials, they create a severe vulnerability for unauthorized system access.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC15</ControlRef>
+    <ControlDefinition>Access to maintain CUA landscape (SCUA) &amp; Access to Maintain user distribution field selection (SCUM)</ControlDefinition>
+    <Description>Access to manage central user administration and user distribution rules.</Description>
+    <Risk>Misuse or over-assignment of CUA access can result in inconsistent role assignments across systems or unauthorized user provisioning.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC16</ControlRef>
+    <ControlDefinition>SAP Standard Program changes</ControlDefinition>
+    <Description>Monitoring changes made to SAP-delivered standard programs.</Description>
+    <Risk>Unapproved changes can make the system unsupported by SAP, introduce errors, and compromise system reliability.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC17</ControlRef>
+    <ControlDefinition>Authorizations to Modify IDOCs in Production</ControlDefinition>
+    <Description>Identification of users who can change IDOCs in production systems.</Description>
+    <Risk>IDOC changes can alter data exchanged with external systems (e.g., vendors, customers), leading to financial discrepancies or reconciliation failures.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+  <Row>
+    <ControlRef>ITGC18</ControlRef>
+    <ControlDefinition>Leavers Control (IT &amp; Business Users)</ControlDefinition>
+    <Description>Ensuring access of terminated/transferred employees is deactivated timely.</Description>
+    <Risk>Retaining access for leavers creates a major security risk as it allows unauthorized access to sensitive data or systems, possibly resulting in misuse or data leakage.</Risk>
+    <ControlAction></ControlAction>
+  </Row>
+</ITGCControls>

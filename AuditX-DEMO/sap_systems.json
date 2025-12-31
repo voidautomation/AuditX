@@ -1,0 +1,18 @@
+{
+  "SAP ABAP": {
+    "AppServerHost": "43.242.210.90",
+    "SystemNumber": "02",
+    "Client": "200",
+    "User": "ABHINAVK",
+    "Password": "Twxred@710",
+    "Language": "EN"
+  },
+  "SAP ECC": {
+    "AppServerHost": "192.168.1.26",
+    "SystemNumber": "00",
+    "Client": "001",
+    "User": "ADMIN",
+    "Password": "Twxred@710",
+    "Language": "EN"
+  }
+}

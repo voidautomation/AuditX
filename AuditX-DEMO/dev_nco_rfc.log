@@ -1,0 +1,1795 @@
+
+**** Log file opened by process 28640 at 2025-11-28 12:54:13 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 12:54:13.454 [Thread 1]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+   at AuditX.HouseKeeper.HouseKeeper_Load(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 95
+   at System.Windows.Forms.Form.OnLoad(EventArgs e)
+   at System.Windows.Forms.Form.OnCreateControl()
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.WmShowWindow(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.Form.WmShowWindow(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.SafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Forms.SafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   at System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   at System.Windows.Forms.Control.Show()
+   at AuditX.Home.btnInactivity_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\Forms\Home.vb:line 655
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 12:54:28.577 [Thread 1]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+   at AuditX.HouseKeeper.HouseKeeper_Load(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 95
+   at System.Windows.Forms.Form.OnLoad(EventArgs e)
+   at System.Windows.Forms.Form.OnCreateControl()
+   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   at System.Windows.Forms.Control.CreateControl()
+   at System.Windows.Forms.Control.WmShowWindow(Message& m)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.Form.WmShowWindow(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.SafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Forms.SafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   at System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   at System.Windows.Forms.Control.Show()
+   at AuditX.Home.btnInactivity_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\Forms\Home.vb:line 655
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 12336 at 2025-11-28 13:13:41 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 13:13:41.402 [Thread 1]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:13:41 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 13:13:41.460 [Thread 1]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:13:41 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 18112 at 2025-11-28 13:21:25 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 13:21:25.594 [Thread 1]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:21:25 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 13:21:25.617 [Thread 1]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:21:25 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 17088 at 2025-11-28 13:29:05 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 13:29:05.756 [Thread 1]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:29:05 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 13:29:05.777 [Thread 1]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:29:05 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 20164 at 2025-11-28 13:35:10 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 13:35:10.884 [Thread 1]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:35:10 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 13:35:10.906 [Thread 1]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:35:10 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 13:39:50.164 [Thread 1]
+Failure to create pool for destination SAP ABAP (ORIGINAL, user: null) [NAME=SAP ABAP ASHOST=43.242.210.90 SYSNR=02 USER=ABHINAVK PASSWD=******** CLIENT=200 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '43.242.210.90:3302' not reached
+TIME        Fri Nov 28 13:39:50 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 43.242.210.90:3302
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-11-28 13:39:50.197 [Thread 1]
+[NAME=SAP ABAP ASHOST=43.242.210.90 SYSNR=02 USER=ABHINAVK PASSWD=******** CLIENT=200 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '43.242.210.90:3302' not reached
+TIME        Fri Nov 28 13:39:50 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 43.242.210.90:3302
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper.btnAnalyze_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 188
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 19912 at 2025-11-28 13:50:48 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 13:50:48.022 [Thread 9]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:50:47 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 207
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 13:50:48.072 [Thread 9]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:50:47 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 207
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 13:52:41.214 [Thread 11]
+Failure to create pool for destination SAP ABAP (ORIGINAL, user: null) [NAME=SAP ABAP ASHOST=43.242.210.90 SYSNR=02 USER=ABHINAVK PASSWD=******** CLIENT=200 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '43.242.210.90:3302' not reached
+TIME        Fri Nov 28 13:52:41 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 43.242.210.90:3302
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 207
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 13:52:41.215 [Thread 11]
+[NAME=SAP ABAP ASHOST=43.242.210.90 SYSNR=02 USER=ABHINAVK PASSWD=******** CLIENT=200 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '43.242.210.90:3302' not reached
+TIME        Fri Nov 28 13:52:41 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 43.242.210.90:3302
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 207
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 30192 at 2025-11-28 13:59:51 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 13:59:51.867 [Thread 9]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:59:51 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 13:59:51.890 [Thread 9]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 13:59:51 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 26892 at 2025-11-28 14:09:14 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 14:09:14.969 [Thread 9]
+Failure to create pool for destination SAP ABAP (ORIGINAL, user: null) [NAME=SAP ABAP ASHOST=43.242.210.90 SYSNR=02 USER=ABHINAVK PASSWD=******** CLIENT=200 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '43.242.210.90:3302' not reached
+TIME        Fri Nov 28 14:09:14 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 43.242.210.90:3302
+SYSTEM CALL connect
+ERRNO       10061
+ERRNO TEXT  WSAECONNREFUSED: Connection refused
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 14:09:14.998 [Thread 9]
+[NAME=SAP ABAP ASHOST=43.242.210.90 SYSNR=02 USER=ABHINAVK PASSWD=******** CLIENT=200 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '43.242.210.90:3302' not reached
+TIME        Fri Nov 28 14:09:14 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 43.242.210.90:3302
+SYSTEM CALL connect
+ERRNO       10061
+ERRNO TEXT  WSAECONNREFUSED: Connection refused
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 25548 at 2025-11-28 14:35:55 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 14:35:55.614 [Thread 8]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 14:35:55 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 14:35:55.627 [Thread 8]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 14:35:55 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 11352 at 2025-11-28 15:53:59 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-11-28 15:54:00.005 [Thread 9]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 15:53:59 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 15:54:00.042 [Thread 9]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 15:53:59 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 15:55:59.892 [Thread 6]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 15:55:59 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-11-28 15:55:59.893 [Thread 6]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Fri Nov 28 15:55:59 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 14988 at 2025-12-04 22:05:43 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-04 22:05:43.188 [Thread 1]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER RETURN of FUNCTION BAPI_USER_LOCK (GETTER): cannot convert TABLE [STRUCTURE BAPIRET2] into IRfcStructure ---> System.InvalidCastException: Unable to cast object of type 'SAP.Middleware.Connector.RfcTable' to type 'SAP.Middleware.Connector.IRfcStructure'.
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(String name)
+   at AuditX.SAPHelper.LockUser(String destinationName, String userName, String& outMessage) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\module\SAPHelper.vb:line 72
+   at AuditX.HouseKeeper.btnLockUser_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 585
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-12-04 22:07:33.037 [Thread 1]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER RETURN of FUNCTION BAPI_USER_LOCK (GETTER): cannot convert TABLE [STRUCTURE BAPIRET2] into IRfcStructure ---> System.InvalidCastException: Unable to cast object of type 'SAP.Middleware.Connector.RfcTable' to type 'SAP.Middleware.Connector.IRfcStructure'.
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(String name)
+   at AuditX.SAPHelper.LockUser(String destinationName, String userName, String& outMessage) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\module\SAPHelper.vb:line 72
+   at AuditX.HouseKeeper.btnLockUser_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 585
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+>> Error entry 2025-12-04 22:07:33.086 [Thread 1]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER RETURN of FUNCTION BAPI_USER_LOCK (GETTER): cannot convert TABLE [STRUCTURE BAPIRET2] into IRfcStructure ---> System.InvalidCastException: Unable to cast object of type 'SAP.Middleware.Connector.RfcTable' to type 'SAP.Middleware.Connector.IRfcStructure'.
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(String name)
+   at AuditX.SAPHelper.LockUser(String destinationName, String userName, String& outMessage) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\module\SAPHelper.vb:line 72
+   at AuditX.HouseKeeper.btnLockUser_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 585
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 18980 at 2025-12-04 22:22:25 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-04 22:22:25.563 [Thread 5]
+Failure to create pool for destination TEMP_f9255ec47f89470aa8d2f433e82b83a6 (ORIGINAL, user: null) [NAME=TEMP_f9255ec47f89470aa8d2f433e82b83a6 ASHOST=192.168.1.12 SYSNR=00 CLIENT=001 USER=RFCAUDIT PASSWD=******** LANG=EN]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:22:25 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.RFCSettingsForm.TestConnectionBackground(RfcConfigParameters parms, String destName, IDestinationConfiguration originalRegistered) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\RFCSettingsForm.vb:line 200
+   at AuditX.RFCSettingsForm._Closure$__124-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\RFCSettingsForm.vb:line 297
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-12-04 22:22:25.621 [Thread 5]
+[NAME=TEMP_f9255ec47f89470aa8d2f433e82b83a6 ASHOST=192.168.1.12 SYSNR=00 CLIENT=001 USER=RFCAUDIT PASSWD=******** LANG=EN]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:22:25 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.RFCSettingsForm.TestConnectionBackground(RfcConfigParameters parms, String destName, IDestinationConfiguration originalRegistered) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\RFCSettingsForm.vb:line 200
+   at AuditX.RFCSettingsForm._Closure$__124-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\RFCSettingsForm.vb:line 297
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-12-04 22:24:46.549 [Thread 5]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:24:46 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-12-04 22:24:46.583 [Thread 5]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:24:46 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 25312 at 2025-12-04 22:26:55 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-04 22:26:55.552 [Thread 4]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:26:55 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-12-04 22:26:55.578 [Thread 4]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:26:55 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 7832 at 2025-12-04 22:29:38 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-04 22:29:38.480 [Thread 4]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:29:38 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     3
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-12-04 22:29:38.507 [Thread 4]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:29:38 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     3
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 7620 at 2025-12-04 22:38:31 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-04 22:38:31.823 [Thread 4]
+Failure to create pool for destination SAP 2 (ORIGINAL, user: null) [NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:38:31 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+>> Error entry 2025-12-04 22:38:31.850 [Thread 4]
+[NAME=SAP 2 ASHOST=192.168.1.12 SYSNR=00 USER=RFCAUDIT PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host LAPTOP-6R66H64Q with Unicode
+ERROR       partner '192.168.1.12:3300' not reached
+TIME        Thu Dec 04 22:38:31 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.12:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 209
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+
+**** Log file opened by process 22028 at 2025-12-05 12:13:54 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA-PRD\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA-PRD\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-05 12:13:54.986 [Thread 1]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER RETURN of FUNCTION BAPI_USER_LOCK (GETTER): cannot convert TABLE [STRUCTURE BAPIRET2] into IRfcStructure ---> System.InvalidCastException: Unable to cast object of type 'SAP.Middleware.Connector.RfcTable' to type 'SAP.Middleware.Connector.IRfcStructure'.
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(String name)
+   at AuditX.SAPHelper.LockUser(String destinationName, String userName, String& outMessage) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\module\SAPHelper.vb:line 72
+   at AuditX.HouseKeeper.btnLockUser_Click(Object sender, EventArgs e) in D:\Development\DEV-QA-PRD\AuditX\HouseKeeper\HouseKeeper.vb:line 587
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83
+
+**** Log file opened by process 36088 at 2025-12-08 01:46:51 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-08 01:46:51.759 [Thread 5]
+Failure to create pool for destination SAP ECC (ORIGINAL, user: null) [NAME=SAP ECC ASHOST=192.168.1.26 SYSNR=00 USER=ADMIN PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.26:3300' not reached
+TIME        Mon Dec 08 01:46:51 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.26:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     3
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA\AuditX\HouseKeeper\HouseKeeper.vb:line 219
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+>> Error entry 2025-12-08 01:46:51.787 [Thread 5]
+[NAME=SAP ECC ASHOST=192.168.1.26 SYSNR=00 USER=ADMIN PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.26:3300' not reached
+TIME        Mon Dec 08 01:46:51 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.26:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     3
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA\AuditX\HouseKeeper\HouseKeeper.vb:line 219
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+
+**** Log file opened by process 3532 at 2025-12-08 02:18:21 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-08 02:18:21.043 [Thread 7]
+Failure to create pool for destination SAP ECC (ORIGINAL, user: null) [NAME=SAP ECC ASHOST=192.168.1.26 SYSNR=00 USER=ADMIN PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.26:3300' not reached
+TIME        Mon Dec 08 02:18:21 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.26:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA\AuditX\HouseKeeper\HouseKeeper.vb:line 219
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+>> Error entry 2025-12-08 02:18:21.057 [Thread 7]
+[NAME=SAP ECC ASHOST=192.168.1.26 SYSNR=00 USER=ADMIN PASSWD=******** CLIENT=001 LANG=EN POOL_SIZE=5]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '192.168.1.26:3300' not reached
+TIME        Mon Dec 08 02:18:21 2025
+RELEASE     722
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3287
+DETAIL      NiPConnect2: 192.168.1.26:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+RETURN CODE: 20
+   at SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.Ping()
+   at AuditX.HouseKeeper._Closure$__138-0._Lambda$__0() in D:\Development\DEV-QA\AuditX\HouseKeeper\HouseKeeper.vb:line 219
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   at System.Threading.Tasks.Task.ExecutionContextCallback(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+   at System.Threading.Tasks.Task.ExecuteEntry(Boolean bPreventDoubleExecution)
+   at System.Threading.Tasks.Task.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+
+**** Log file opened by process 22980 at 2025-12-08 02:29:40 (UTC+05:30 India Standard Time)
+
+SAP .NET Connector 3.0 with file version 3.0.26.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Development\DEV-QA\AuditX\bin\Debug\AuditX.exe
+Working directory: D:\Development\DEV-QA\AuditX\bin\Debug
+Operating system: Windows 10 Home Single Language 64-bit 
+Processor: 18x AMD64 (or x64)
+SAP release: 722, Kernel release: 722, Kernel patch level: 1313
+Hostname: LAPTOP-6R66H64Q, IP address: 169.254.80.106, IP_v6 address: fe80::c251:34a3:e264:794c
+
+Default trace level: None
+
+>> Error entry 2025-12-08 02:29:40.620 [Thread 1]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER RETURN of FUNCTION BAPI_USER_LOCK (GETTER): cannot convert TABLE [STRUCTURE BAPIRET2] into IRfcStructure ---> System.InvalidCastException: Unable to cast object of type 'SAP.Middleware.Connector.RfcTable' to type 'SAP.Middleware.Connector.IRfcStructure'.
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   at SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(String name)
+   at AuditX.SAPHelper.LockUser(String destinationName, String userName, String& outMessage) in D:\Development\DEV-QA\AuditX\HouseKeeper\module\SAPHelper.vb:line 72
+   at AuditX.HouseKeeper.btnLockUser_Click(Object sender, EventArgs e) in D:\Development\DEV-QA\AuditX\HouseKeeper\HouseKeeper.vb:line 597
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()
+   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)
+   at AuditX.My.MyApplication.Main(String[] Args) in :line 83

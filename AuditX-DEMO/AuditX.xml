@@ -1,0 +1,147 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AuditX
+</name>
+</assembly>
+<members>
+<member name="T:AuditX.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.AI_Settigs">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.AVSA_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.Background">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.connection">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.settings">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.settings__1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:AuditX.LogViewer.AddLogRow(System.String,System.String,System.String,System.String)">
+ <summary>
+ Adds a row with status-based coloring
+ </summary>
+</member>
+<member name="M:AuditX.LogViewer.txtFilter_TextChanged(System.Object,System.EventArgs)">
+ <summary>
+ Filter logs dynamically
+ </summary>
+</member>
+<member name="M:AuditX.SAPHelper.LockUser(System.String,System.String,System.String@)">
+ <summary>
+ Attempts to lock the supplied user via BAPI. Returns True on success.
+ outMessage contains any message returned by the BAPI or error text.
+ </summary>
+</member>
+<member name="M:AuditX.SecurityHelpers.EncryptString(System.String)">
+ <summary>
+ Encrypts a plaintext string using DPAPI (CurrentUser). Returns base64 ciphertext.
+ </summary>
+</member>
+<member name="M:AuditX.SecurityHelpers.DecryptString(System.String)">
+ <summary>
+ Attempts to decrypt a base64 ciphertext previously created with <see cref="M:AuditX.SecurityHelpers.EncryptString(System.String)"/>.
+ If decryption fails (value was plain text or corrupted) the original value is returned.
+ </summary>
+</member>
+<member name="M:AuditX.FileUtils.GetUniqueFileName(System.String,System.String)">
+ <summary>
+ Returns a unique file name by appending (1), (2), etc., before the extension if needed.
+ </summary>
+ <param name="basePath">The folder where the file should be saved</param>
+ <param name="fileNameWithExt">File name with extension (e.g., "Report.docx")</param>
+ <returns>Full file path with unique name</returns>
+</member>
+<member name="M:AuditX.Logger.InitializeLog(System.String)">
+ <summary>
+ Initializes the log file path with control ID and current user
+ </summary>
+ <param name="ctrlID">Control ID like ITGC01</param>
+</member>
+<member name="M:AuditX.Logger.LogMessage(System.String,System.Boolean)">
+ <summary>
+ Writes a message to the log file with timestamp
+ </summary>
+ <param name="message">The log message</param>
+ <param name="success">True for success, False for error</param>
+</member>
+<member name="M:AuditX.Logger.LogException(System.Exception,System.String)">
+ <summary>
+ Logs an exception with full details (message, source, stacktrace)
+ </summary>
+ <param name="ex">The exception object</param>
+ <param name="customMessage">Optional extra message for context</param>
+</member>
+<member name="M:AuditX.Logger.OpenLogFolder">
+ <summary>
+ Opens the log folder (C:\Void\Logs) in File Explorer
+ </summary>
+</member>
+<member name="M:AuditX.Logger.CreateFolderPath(System.String)">
+ <summary>
+ Ensures the full folder path exists by creating missing directories
+ </summary>
+ <param name="folderPath">Full folder path to create</param>
+</member>
+<member name="M:AuditX.MouseHoverHandler.ApplyHoverEffect(System.Windows.Forms.Control,System.Drawing.Color,System.Windows.Forms.Cursor,System.Drawing.Size)">
+ <summary>
+ Applies hover effect to a control.
+ Includes background color, cursor, optional size increase.
+ </summary>
+ <param name="ctrl">Control to apply hover effect to</param>
+ <param name="hoverBack">Background color on hover (default: LightBlue)</param>
+ <param name="hoverCursor">Cursor on hover (default: Hand)</param>
+ <param name="enlargeSize">Optional size increase (e.g., New Size(10, 5))</param>
+</member>
+<member name="M:AuditX.ctrlGeneral.CopyFileToAppDirectoryWithSuffix(System.Windows.Forms.IWin32Window,System.String)">
+ <summary>
+ Copies the specified file to the application's startup directory.
+ If a file with the same name exists, prompts the user to overwrite.
+ Returns the relative path to the copied file, or Nothing if canceled or failed.
+ </summary>
+ <param name="owner">The window that owns any dialog boxes shown.</param>
+ <param name="sourceFilePath">The full path of the file to copy.</param>
+ <returns>
+ The relative path to the copied file (e.g., ".\filename.ext") if successful; otherwise, Nothing.
+ </returns>
+ <exception cref="T:System.ArgumentNullException">
+ Thrown if <paramref name="owner"/> or <paramref name="sourceFilePath"/> is Nothing.
+ </exception>
+</member>
+</members>
+</doc>
