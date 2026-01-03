@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>AuditX — Detailed SOP</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body data-doc="SOP">
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h6>AuditX - Detailed SOP</h6>
+      <small>Version: 1.0 </small><br>
+        <small>Generated: 2026-01-03 </small><br>
+        <small>Target audience: End User</small><br>
+        <small>Author: Abhinav Kumar</small>
+    </div>
+
+    <!-- Search -->
+    <div class="px-3 mt-3">
+      <input class="form-control form-control-sm" id="searchInput" placeholder="Search documentation">
+    </div>
+
+    <div class="px-3 mt-3">
+      <button class="btn btn-sm btn-outline-primary w-100" onclick="exportPDF()">
+      <i class="bi bi-file-earmark-pdf"></i> Export PDF
+      </button>
+    </div>
+
+    <!-- TOC -->
+    <nav id="toc" class="nav flex-column sidebar-nav mt-3 px-2"></nav>
+    
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="content-inner" id="content">
+
+      <!-- ===================== DETAILED SOP ===================== -->
+
+      <!-- Purpose -->
+      <h2 id="purpose">1. Purpose</h2>
+      <p>This document provides a detailed, step-by-step SOP for operating the AuditX ITGC Audit Automation tool. It is intended for operators, administrators, and maintainers responsible for running SAP ITGC audits, collecting evidence, and producing monthly reports.</p>
+
+      <!-- Scope -->
+      <h2 id="scope">2. Scope</h2>
+      <p>Covers pre-flight checks, daily/one-off execution (single & all controls), report generation, log review, troubleshooting, maintenance tasks, backups, and escalation procedures.</p>
+
+      <!-- Prerequisites -->
+      <h2 id="prerequisites">3. Prerequisites</h2>
+      <ul>
+        <li>Windows 10/11 with interactive session (required for Foreground mode and Word Interop).</li>
+        <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48">.NET Framework 4.8</a> installed.</li>
+        <li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784&msockid=271f003e77906463243416a07668654d">Visual C++ Redistributable 2013</a> or later must be installed.</li>
+        <li>Microsoft Word installed and licensed.</li>
+        <li>SAP GUI installed; <code>saplogon.exe</code> accessible.</li>
+        <li>SAP scripting enabled (client & server).</li>
+        <li>Application configuration: <code>My.Settings</code> populated.</li>
+        <li>Write access to <code>%USERPROFILE%\Downloads\ITGC REPORT</code></li>
+      <div class="doc-box mt-3">
+  <strong>🔒 Update SAP GUI Security Settings:</strong>
+  <ol>
+    <li>Go to SAP Logon → Options → Security → Security Settings</li>
+    <li>Add rule to Always Allow your automation directory</li>
+  </ol>
+
+  <img src="./img/securitySetting.png"
+       class="img-fluid border rounded mt-2"
+       style="max-width:70%; page-break-inside:avoid;">
+</div>
+      </ul>
+
+      <!-- Roles & Responsibilities -->
+      <h2 id="roles">4. Roles & Responsibilities</h2>
+      <ul>
+        <li><b>Operator:</b> Run controls, monitor execution, review results, generate monthly report.</li>
+        <li><b>Administrator:</b> Maintain settings, update XML, perform backups, rotate logs.</li>
+        <li><b>Developer/Maintainer:</b> Implement new controls, fix defects, update documentation.</li>
+      </ul>
+
+      <!-- Pre-flight -->
+      <h2 id="preflight">5. Environment Preparation (Pre-flight)</h2>
+      <ol>
+        <li>Login to Windows account with local write permissions and SAP access.</li>
+        <li>Verify Word launches without first-run dialogs.</li>
+        <li>Verify SAP Logon opens and connection entries exist.</li>
+        <li>Validate <code>My.Settings</code> via Settings form:
+          <ul>
+            <li><code>SAPLogonPath</code>, <code>SAPGUIXML</code>, <code>ITGCControl</code></li>
+            <li><code>Report_FTIME</code>, <code>Report_TTIME</code>, per-control keys.</li>
+          </ul>
+        </li>
+        <li>Confirm <code>lang.json</code> (if used) and XML files present and valid.</li>
+        <li>Ensure <code>C:\Void\Logs</code> exists and is writable.</li>
+        <li>For VM/scheduled runs, ensure active interactive session exists for Word/clipboard.</li>
+      </ol>
+
+      <!-- Execution: Single Control -->
+      <h2 id="single-control">6. Execution: Single Control</h2>
+      <ol>
+        <li>Launch <code>AuditX.exe</code>.</li>
+        <li>On Home form:
+          <ul>
+            <li>Set Start/End dates; confirm <code>txtReportMonth</code>.</li>
+            <li>Select system (<code>cmbSystem</code>) and control (<code>cmbControl</code>).</li>
+            <li>Optionally check <code>CheckBoxClient</code> and enter <code>txtClient</code>.</li>
+            <li>Enter <code>txtUsername</code> and <code>txtPassword</code>.</li>
+            <li>Select <code>cmbExecutionType</code> = Single Control, mode = Foreground/Background.</li>
+          </ul>
+        </li>
+        <li>Click Execute; monitor <code>lblNotification</code> and logs.</li>
+        <li>Confirm per-control Word doc saved and CSV updated.</li>
+        <li>If errors in Word/screenshots, inspect document manually.</li>
+      </ol>
+
+      <!-- Execution: All Controls -->
+      <h2 id="all-controls">7. Execution: All Controls (Batch)</h2>
+      <ol>
+        <li>Select <code>cmbExecutionType</code> = All Controls.</li>
+        <li>Set credentials and system.</li>
+        <li>Choose Foreground (interactive) or Background (unattended).</li>
+        <li>Click Execute; monitor logs and <code>lblNotification</code>.</li>
+        <li>Validate CSV for all controls executed.</li>
+      </ol>
+
+      <!-- Report Generation -->
+      <h2 id="report-generation">8. Report Generation (Monthly Consolidation)</h2>
+      <ol>
+        <li>Ensure CSVs exist under <code>%USERPROFILE%\Downloads\ITGC REPORT\<Month></code>.</li>
+        <li>Select date range or set <code>txtReportMonth</code>.</li>
+        <li>Click Generate Word Report.</li>
+        <li>Verify report contents:
+          <ul>
+            <li>Cover & metadata table</li>
+            <li>Dashboard summary counts</li>
+            <li>Detailed records table (Control ID, Description, System, Status, Comment, Timestamp)</li>
+            <li>Grouped summary with required action notes</li>
+          </ul>
+        </li>
+      </ol>
+
+      <!-- Log Review -->
+      <h2 id="log-review">9. Log Review & Evidence Retention</h2>
+      <ul>
+        <li>Logs: <code>C:\Void\Logs\SAPExecutionLog - &lt;User&gt; &lt;yyyy-MM-dd&gt;.txt</code></li>
+        <li>Evidence files: monthly folder under <code>Downloads\ITGC REPORT\<Month></code>.</li>
+        <li>Audit CSV: ensure integrity and headers; validate via <code>AuditStore</code>.</li>
+      </ul>
+
+      <!-- Troubleshooting -->
+      <h2 id="troubleshooting">10. Troubleshooting</h2>
+      <ul>
+        <li><b>SAP GUI not found:</b> Start <code>saplogon.exe</code> manually; verify <code>SAPLogonPath</code>.</li>
+        <li><b>Login failed:</b> Reset SAP password or contact security team.</li>
+        <li><b>Word Interop fails:</b> Kill residual <code>WINWORD.EXE</code>; retry.</li>
+        <li><b>Screenshots missing:</b> Use interactive desktop or switch to Background mode.</li>
+        <li><b>CSV parsing errors:</b> Validate quoting and headers; debug via <code>AuditStore.LoadCsv</code>.</li>
+        <li><b>Logs missing:</b> Check <code>C:\Void\Logs</code> permissions and disk space.</li>
+      </ul>
+
+      <!-- Maintenance Tasks -->
+      <h2 id="maintenance-tasks">11. Maintenance Tasks</h2>
+      <h5>Weekly</h5>
+      <ul>
+        <li>Check logs folder growth; archive/rotate logs older than 30 days.</li>
+        <li>Verify current month folder is collecting outputs.</li>
+      </ul>
+      <h5>Monthly</h5>
+      <ul>
+        <li>Generate consolidated report and archive folder.</li>
+        <li>Verify log archiving and prune old logs.</li>
+        <li>Update <code>ITGCControl</code> XML as needed.</li>
+      </ul>
+
+      <!-- Change Management -->
+      <h2 id="change-management">12. Change Management</h2>
+      <ul>
+        <li>All control changes reviewed before commit.</li>
+        <li>Update XML & settings in a single release commit.</li>
+        <li>Tag releases and maintain changelog; update documentation.</li>
+      </ul>
+
+      <!-- Security & Audit -->
+      <h2 id="security">13. Security & Audit Considerations</h2>
+      <ul>
+        <li>Do not store SAP passwords in source files.</li>
+        <li>Limit permissions on logs and archived folders.</li>
+        <li>Maintain access logs via Logger.</li>
+      </ul>
+
+      <!-- Escalation Matrix -->
+      <h2 id="escalation">14. Escalation Matrix</h2>
+      <ul>
+        <li>Level 1 (Operator): Restart, check logs, retry; escalate to Admin if unresolved.</li>
+        <li>Level 2 (Administrator): Verify settings, SAP scripting, Word; escalate to Developer if needed.</li>
+        <li>Level 3 (Developer): Debug modules, inspect COM, add logging if required.</li>
+      </ul>
+
+      <!-- Acceptance Criteria -->
+      <h2 id="acceptance">15. Acceptance Criteria</h2>
+      <ul>
+        <li>Per-control Word files saved.</li>
+        <li>Audit CSV contains expected rows.</li>
+        <li>Monthly report generated with summary and details.</li>
+        <li>No orphaned WINWORD.EXE or SAP session objects.</li>
+      </ul>
+
+      <!-- Appendix -->
+      <h2 id="appendix">16. Appendix: Useful Commands</h2>
+      <ul>
+        <li>Build: <code>msbuild AuditX.sln /p:Configuration=Release</code></li>
+        <li>Kill Word (PowerShell): <code>Get-Process WINWORD -ErrorAction SilentlyContinue | Stop-Process -Force</code></li>
+        <li>Open logs: <code>explorer 'C:\Void\Logs'</code></li>
+      </ul>    
+    
+  </main>
+</div>
+<!-- Bootstrap 5 JS Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="toc.js"></script>
+<script src="script.js"></script>
+
+
+
+</body>
+</html>

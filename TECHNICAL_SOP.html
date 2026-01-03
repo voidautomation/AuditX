@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>AuditX — Technical Specification & SOP</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body data-doc="Technical">
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h6>AuditX — Technical Specification</h6>  
+        <small>Version: 1.0 </small><br>
+        <small>Generated: 2026-01-03 </small><br>
+        <small>Target audience: Developers / Auditors</small>
+        <small>Author: Abhinav Kumar</small>      
+    </div>
+
+    <!-- Search -->
+    <div class="px-3 mt-3">
+      <input class="form-control form-control-sm" id="searchInput" placeholder="Search documentation">
+    </div>
+    <div class="px-3 mt-3">
+      <button class="btn btn-sm btn-outline-primary w-100" onclick="exportPDF()">
+      <i class="bi bi-file-earmark-pdf"></i> Export PDF
+      </button>
+    </div>
+    <!-- TOC -->
+    <nav id="toc" class="nav flex-column sidebar-nav mt-3 px-2"></nav>    
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="content-inner" id="content">
+
+      <!-- ===================== TECHNICAL DOCUMENTATION ===================== -->
+           <!-- Overview -->
+      <h2 id="overview">1. Overview</h2>
+      <p><b>AuditX</b> is a Windows Forms (.NET Framework 4.8) desktop application that automates ITGC audits on SAP systems. It drives SAP GUI via scripting, captures screenshots, stores audit results in CSV, and generates Word reports. Supports both single-control and batched “All Controls” execution.</p>
+
+      <!-- High-level Architecture -->
+      <h2 id="architecture">2. High-level Architecture</h2>
+      <img src="./img/Architecture.svg"
+       class="img-fluid border rounded mt-2"
+       style="max-width:70%; page-break-inside:avoid;">      
+
+      <h5>Key Program Flow</h5>
+      <ol>
+        <li>User selects date range, system, and control(s) on the Home form.</li>
+        <li><code>btnExecute</code> validates inputs and calls <code>ITGC_AUDIT.ExecuteSAPScripts</code>.</li>
+        <li>Iterates over all controls or executes a single control module.</li>
+        <li>For each control:
+          <ul>
+            <li><code>AttachToSAP()</code> connects to SAP Logon and starts a session.</li>
+            <li>Control module executes, captures screenshots, and stores comments.</li>
+            <li><code>DisconnectFromSAP()</code> cleans up COM objects.</li>
+          </ul>
+        </li>
+        <li>Reports generated via <code>WordReportGenerator.GenerateMonthlyReport</code> using CSV audit data.</li>
+      </ol>
+
+      <h5>Key Files & Responsibilities</h5>
+      <ul>
+        <li><b>Home.vb:</b> Main UI and orchestration</li>
+        <li><b>ITGC_AUDIT.vb:</b> SAP attach/detach, control dispatcher</li>
+        <li><b>ITGCxx.vb:</b> Individual control implementations</li>
+        <li><b>AuditStore.vb:</b> CSV persistence for audit comments/status</li>
+        <li><b>WordReportGenerator.vb:</b> Word document generation with screenshots</li>
+        <li><b>Logger.vb:</b> Logging helper for execution events and errors</li>
+        <li><b>AssemblyInfo.vb:</b> Product version metadata</li>
+      </ul>
+
+      <h5>Build & Run Prerequisites</h5>
+      <ul>
+        <li>Windows 10/11 OS</li>
+        <li>Visual Studio 2022 or MSBuild with .NET Framework 4.8</li>
+        <li>Microsoft Office Word (Interop)</li>
+        <li>SAP GUI installed; <code>My.Settings.SAPLogonPath</code> points to <code>saplogon.exe</code></li>
+        <li>SAP scripting enabled on client and server</li>
+        <li>User account with required SAP authorizations</li>
+      </ul>
+
+      <h5>Data Artifacts & Locations</h5>
+      <ul>
+        <li>Logs: <code>C:\Void\Logs\SAPExecutionLog - &lt;User&gt; &lt;yyyy-MM-dd&gt;.txt</code></li>
+        <li>Audit CSVs: <code>%USERPROFILE%\Downloads\ITGC REPORT\<Month>\ITGC_Audit_Comments_<Month>.csv</code></li>
+        <li>Word Reports: <code>ITGC_Monthly_Report_<Month>.docx</code></li>
+        <li>Temporary screenshots: stored in temp folder during Word insertion</li>
+      </ul>
+
+      <h2 id="sop">3. Standard Operating Procedures (SOP)</h2>
+      <p>This section outlines step-by-step procedures for operating AuditX.</p>
+        <summary>Pre-flight checks</summary>
+        <ol>
+          <li>Confirm Word and SAP GUI installed and launch successfully.</li>
+          <li>Verify SAP GUI scripting is enabled (client & server-side).</li>
+          <li>Open <code>Settings</code> and verify paths and time settings.</li>
+          <li>Confirm correct SAP credentials and client number.</li>
+          <li>Ensure write access to <code>Downloads</code> and <code>C:\Void\Logs</code>.</li>
+        </ol>
+  
+        <summary>Run a single control</summary>
+        <ol>
+          <li>Launch <code>AuditX.exe</code>.</li>
+          <li>Select system, control, dates, credentials, and execution mode.</li>
+          <li>Click Execute and monitor notifications.</li>
+        </ol>
+        <summary>Run all controls</summary>
+        <ol>
+          <li>Set Execution Type = All Controls.</li>
+          <li>Provide credentials, system, dates, execution mode.</li>
+          <li>Click Execute. Check CSVs, Word files, and logs.</li>
+        </ol>
+      
+        <summary>Generate consolidated monthly report</summary>
+        <ol>
+          <li>Ensure CSVs exist for the month.</li>
+          <li>Set <code>txtReportMonth</code>.</li>
+          <li>Click Generate Word Report.</li>
+          <li>Check monthly folder for <code>ITGC_Monthly_Report_<Month>.docx</code>.</li>
+        </ol>
+     
+        <summary>Access logs and outputs</summary>
+        <ul>
+          <li>Logs: <code>C:\Void\Logs</code> or via Log Viewer.</li>
+          <li>CSV/Word files: <code>%USERPROFILE%\Downloads\ITGC REPORT\<Month></code>.</li>
+        </ul>
+ 
+      <h2 id="troubleshooting">4. Troubleshooting — Common Issues</h2>
+      <ul>
+        <li><b>SAP GUI not running:</b> Start <code>saplogon.exe</code> manually; verify <code>My.Settings.SAPLogonPath</code>.</li>
+        <li><b>Attach / scripting issues:</b> Ensure scripting enabled on client/server; system name matches SAP Logon entry.</li>
+        <li><b>Word Interop errors:</b> Close Word, ensure no dialogs, retry.</li>
+        <li><b>Clipboard empty (Foreground mode):</b> Use interactive desktop session or Background mode.</li>
+        <li><b>Logs not written:</b> Ensure <code>C:\Void\Logs</code> is writable.</li>
+        <li><b>CSV parsing errors:</b> Verify quotes, headers, and column count.</li>
+      </ul>
+
+      <h2 id="maintenance">5. Maintenance & Extensibility</h2>
+      <ul>
+        <li>Adding a new control: update XML, implement <code>ITGCXX.vb</code>, modify <code>ITGC_AUDIT.ExecuteSingleControl</code>, adjust settings.</li>
+        <li>Consider Open XML SDK for Word report generation to avoid COM dependency.</li>
+      </ul>
+
+      <h2 id="build">6. Build & Deployment</h2>
+      <ul>
+        <li>Build in Visual Studio; match platform target with Office bitness.</li>
+        <li>Release artifacts: <code>AuditX.exe</code>, DLLs, XMLs, cover.png, My.Settings or installer.</li>
+      </ul>
+      <pre class="doc-box"><code>msbuild AuditX.sln /p:Configuration=Release</code></pre>
+
+      <h2 id="security">7. Security & Operational Notes</h2>
+      <ul>
+        <li>Passwords read at runtime only from <code>Home.txtPassword</code>.</li>
+        <li>COM objects released via <code>Marshal.ReleaseComObject</code> and <code>GC.Collect</code>.</li>
+        <li>Foreground mode uses clipboard; Background mode for unattended execution.</li>
+      </ul>
+
+      <h2 id="appendix">8. Appendix — Useful Paths & Settings</h2>
+      <ul>
+        <li>Project file: <code>AuditX.vbproj</code></li>
+        <li>Main UI: <code>Forms\Home.vb</code></li>
+        <li>Core module: <code>ITGC\ITGC_AUDIT.vb</code></li>
+        <li>CSV storage: <code>Modules\AuditStore.vb</code></li>
+        <li>Report generation: <code>Modules\WordReportGenerator.vb</code></li>
+        <li>Logs: <code>C:\Void\Logs</code></li>
+        <li>Monthly exports: <code>%USERPROFILE%\Downloads\ITGC REPORT\<Month></code></li>
+      </ul>
+      
+
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="toc.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

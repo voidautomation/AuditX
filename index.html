@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>AuditX Documentation</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3 shadow-sm">
+  <a class="navbar-brand" href="#">
+    AuditX Documentation 
+  </a>
+
+  <div class="collapse navbar-collapse">
+    <!-- Right-aligned document selector -->
+    <div class="ms-auto d-flex align-items-center">
+      <select class="form-select form-select-sm" id="docSelector" style="min-width:180px;">
+        <option value="DETAILED_SOP.html" selected>SOP Document</option>
+        <option value="TECHNICAL_SOP.html">Technical Document</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Content iframe -->
+  <iframe id="docFrame" src="DETAILED_SOP.html"></iframe>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const docSelector = document.getElementById('docSelector');
+    const docFrame = document.getElementById('docFrame');
+
+    // Load selected document in iframe
+    docSelector.addEventListener('change', () => {
+      docFrame.src = docSelector.value;
+    });
+
+  
+  </script>
+</body>
+</html>
