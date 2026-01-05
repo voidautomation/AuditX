@@ -19,7 +19,7 @@
   <aside class="sidebar">
     <div class="sidebar-header">
       <h6>AuditX — Technical Specification</h6>  
-        <small>Version: 1.0 </small><br>
+        <small>Version: 4.5 </small><br>
         <small>Generated: 2026-01-03 </small><br>
         <small>Target audience: Developers / Auditors</small>
         <small>Author: Abhinav Kumar</small>      
@@ -48,10 +48,34 @@
       <p><b>AuditX</b> is a Windows Forms (.NET Framework 4.8) desktop application that automates ITGC audits on SAP systems. It drives SAP GUI via scripting, captures screenshots, stores audit results in CSV, and generates Word reports. Supports both single-control and batched “All Controls” execution.</p>
 
       <!-- High-level Architecture -->
-      <h2 id="architecture">2. High-level Architecture</h2>
-      <img src="./img/Architecture.svg"
+      <h2 id="architecture">2. Flow Chart</h2>
+      <h5>1. High-level Architecture</h5>
+      <img src="./img/High-Level Architecture1.svg" alt="High-Level Architecture"
        class="img-fluid border rounded mt-2"
-       style="max-width:70%; page-break-inside:avoid;">      
+       style="max-width:100%; page-break-inside:avoid;">
+       <br>   
+      <h5>2. Runtime Flow Diagram (User → Execution → Report)</h5>
+      <img src="./img/Runtime Execution Flow1.svg" alt="Runtime Flow Diagram"
+       class="img-fluid border rounded mt-2"
+       style="max-width:100%; page-break-inside:avoid;">
+       <br>  
+      <h5>3. Control Selection Logic</h5>
+      <img src="./img/Control Selection Logic.svg" alt="Control Selection Logic"
+       class="img-fluid border rounded mt-2"
+       style="max-width:100%; page-break-inside:avoid;">   
+      <br>
+      <h5>4. Report Month Logic (Date Validation)</h5>
+       <img src="./img/Report Month Logic (Date Validation).svg" alt="Report Month Logic (Date Validation)"
+       class="img-fluid border rounded mt-2"
+       style="max-width:100%; page-break-inside:avoid;">
+       <br>
+      <h5>5. Folder Structure Logic</h5>
+       <img src="./img/Folder Structure Logic.svg" alt="Folder Structure Logic"
+       class="img-fluid border rounded mt-2"
+       style="max-width:100%; page-break-inside:avoid;"> 
+
+       <br>
+       <hr>
 
       <h5>Key Program Flow</h5>
       <ol>

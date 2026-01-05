@@ -19,7 +19,7 @@
   <aside class="sidebar">
     <div class="sidebar-header">
       <h6>AuditX - Detailed SOP</h6>
-      <small>Version: 1.0 </small><br>
+      <small>Version: 4.5 </small><br>
         <small>Generated: 2026-01-03 </small><br>
         <small>Target audience: End User</small><br>
         <small>Author: Abhinav Kumar</small>
@@ -54,7 +54,11 @@
       <!-- Scope -->
       <h2 id="scope">2. Scope</h2>
       <p>Covers pre-flight checks, daily/one-off execution (single & all controls), report generation, log review, troubleshooting, maintenance tasks, backups, and escalation procedures.</p>
-
+      <h2 id="architecture">User Flow Diagram</h2>
+      <img src="./img/User Flow Diagram.svg" alt="User Flow Diagram"
+       class="img-fluid border rounded mt-2"
+       style="max-width:100%; page-break-inside:avoid;">
+       <br>     
       <!-- Prerequisites -->
       <h2 id="prerequisites">3. Prerequisites</h2>
       <ul>
@@ -96,7 +100,7 @@
         <li>Validate <code>My.Settings</code> via Settings form:
           <ul>
             <li><code>SAPLogonPath</code>, <code>SAPGUIXML</code>, <code>ITGCControl</code></li>
-            <li><code>Report_FTIME</code>, <code>Report_TTIME</code>, per-control keys.</li>
+            <li><code>Report Start Time</code>, <code>Report End Time</code>, per-control keys.</li>
           </ul>
         </li>
         <li>Confirm <code>lang.json</code> (if used) and XML files present and valid.</li>
@@ -106,18 +110,18 @@
 
       <!-- Execution: Single Control -->
       <h2 id="single-control">6. Execution: Single Control</h2>
-      <ol>
-        <li>Launch <code>AuditX.exe</code>.</li>
-        <li>On Home form:
+      <ol>     
+        <li>On Home Screen:</li>
           <ul>
-            <li>Set Start/End dates; confirm <code>txtReportMonth</code>.</li>
-            <li>Select system (<code>cmbSystem</code>) and control (<code>cmbControl</code>).</li>
-            <li>Optionally check <code>CheckBoxClient</code> and enter <code>txtClient</code>.</li>
-            <li>Enter <code>txtUsername</code> and <code>txtPassword</code>.</li>
-            <li>Select <code>cmbExecutionType</code> = Single Control, mode = Foreground/Background.</li>
+           <li>Select <code>ExecutionType</code> = Single Control, mode = Foreground/Background.</li>
+            <li>Choose Foreground (interactive) or Background (unattended).</li>          
+            <li>Select system (<code>System</code>) and control (<code>Control</code>).</li>
+            <li>Optionally check <code>CheckBoxClient</code> and enter <code>Client</code>.</li>
+            <li>Enter <code>Username</code> and <code>Password</code>.</li>
+            <li>Set Start/End dates; confirm <code>ReportMonth</code>.</li>            
           </ul>
         </li>
-        <li>Click Execute; monitor <code>lblNotification</code> and logs.</li>
+        <li>Click Execute; monitor <code>Notification</code> and logs.</li>
         <li>Confirm per-control Word doc saved and CSV updated.</li>
         <li>If errors in Word/screenshots, inspect document manually.</li>
       </ol>
@@ -125,18 +129,25 @@
       <!-- Execution: All Controls -->
       <h2 id="all-controls">7. Execution: All Controls (Batch)</h2>
       <ol>
-        <li>Select <code>cmbExecutionType</code> = All Controls.</li>
-        <li>Set credentials and system.</li>
+       
+        <li>On Home Screen:</li>
+        <li>Select <code>ExecutionType</code> = All Controls.</li>
         <li>Choose Foreground (interactive) or Background (unattended).</li>
-        <li>Click Execute; monitor logs and <code>lblNotification</code>.</li>
+        <li>Select SAP system.</li>
+        <li>Optionally check <code>CheckBoxClient</code> and enter <code>Client</code>.</li>
+        <li>Enter <code>Username</code> and <code>Password</code>.</li>       
+        <li>Set Start/End dates; confirm <code>ReportMonth</code>.</li>       
+        <li>Click Execute; monitor logs and <code>Notification</code>.</li>
         <li>Validate CSV for all controls executed.</li>
+        <li>Confirm per-control Word doc saved and CSV updated.</li>
+        <li>If errors in Word/screenshots, inspect document manually.</li>
       </ol>
 
       <!-- Report Generation -->
       <h2 id="report-generation">8. Report Generation (Monthly Consolidation)</h2>
       <ol>
         <li>Ensure CSVs exist under <code>%USERPROFILE%\Downloads\ITGC REPORT\<Month></code>.</li>
-        <li>Select date range or set <code>txtReportMonth</code>.</li>
+        <li>Select date range to set <code>ReportMonth</code>.</li>
         <li>Click Generate Word Report.</li>
         <li>Verify report contents:
           <ul>
