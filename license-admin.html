@@ -18,26 +18,34 @@ font-family:Segoe UI,Roboto;
 color:#2c3e50;
 }
 
+.page-header{
+font-weight:600;
+}
+
+/* Cards */
+
 .card{
 border:none;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
 transition:.25s;
 }
 
 .card:hover{
 transform:translateY(-3px);
-box-shadow:0 6px 18px rgba(0,0,0,0.15);
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
 }
 
 .stat-number{
-font-size:32px;
+font-size:30px;
 font-weight:600;
 }
 
+/* Table */
+
 .table{
 background:white;
-border-radius:8px;
+border-radius:10px;
 overflow:hidden;
 }
 
@@ -48,7 +56,7 @@ cursor:pointer;
 }
 
 .table-hover tbody tr:hover{
-background:#f0f4f8;
+background:#f1f4f7;
 }
 
 .edited{
@@ -64,33 +72,65 @@ text-align:center;
 padding:25px;
 }
 
+/* Mobile */
+
+@media (max-width:768px){
+
+.page-header{
+font-size:20px;
+}
+
+.stat-number{
+font-size:24px;
+}
+
+.btn{
+font-size:12px;
+padding:4px 8px;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="container-fluid p-4">
+<div class="container-fluid p-3 p-md-4">
 
-<h4 class="mb-4">AuditX License Management</h4>
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+
+<h4 class="page-header mb-3 mb-md-0">AuditX License Management</h4>
+
+<input type="text"
+class="form-control w-100 w-md-auto"
+style="max-width:300px"
+placeholder="Search..."
+id="searchBox">
+
+</div>
+
+
+<!-- Dashboard -->
 
 <div class="row g-3 mb-4">
 
-<div class="col-md-4">
+<div class="col-12 col-md-4">
 <div class="card text-center p-3">
 <div>Total Licenses</div>
 <div class="stat-number text-primary" id="totalLicenses">0</div>
 </div>
 </div>
 
-<div class="col-md-4">
+<div class="col-12 col-md-4">
 <div class="card text-center p-3">
 <div>Active</div>
 <div class="stat-number text-success" id="activeLicenses">0</div>
 </div>
 </div>
 
-<div class="col-md-4">
+<div class="col-12 col-md-4">
 <div class="card text-center p-3">
 <div>Expired</div>
 <div class="stat-number text-danger" id="expiredLicenses">0</div>
@@ -99,19 +139,14 @@ padding:25px;
 
 </div>
 
+
+<!-- Table -->
+
 <div class="card p-3">
-
-<div class="d-flex justify-content-between mb-3">
-
-<h6>License Database</h6>
-
-<input type="text" class="form-control w-25" placeholder="Search..." id="searchBox">
-
-</div>
 
 <div class="table-responsive">
 
-<table class="table table-hover">
+<table class="table table-hover align-middle">
 
 <thead>
 
@@ -136,12 +171,13 @@ padding:25px;
 </div>
 
 <nav class="mt-3">
-<ul class="pagination justify-content-end" id="pagination"></ul>
+<ul class="pagination justify-content-center justify-content-md-end" id="pagination"></ul>
 </nav>
 
 </div>
 
 </div>
+
 
 <!-- Confirmation Modal -->
 
@@ -157,13 +193,8 @@ padding:25px;
 
 <div class="mt-4">
 
-<button class="btn btn-success me-2" id="confirmYes">
-Yes
-</button>
-
-<button class="btn btn-secondary" data-bs-dismiss="modal">
-No
-</button>
+<button class="btn btn-success me-2" id="confirmYes">Yes</button>
+<button class="btn btn-secondary" data-bs-dismiss="modal">No</button>
 
 </div>
 
@@ -174,6 +205,7 @@ No
 </div>
 
 </div>
+
 
 <script type="module">
 
@@ -202,6 +234,7 @@ const rowsPerPage = 10
 
 let confirmAction = null
 
+
 function loadUsers(){
 
 get(ref(db,"licensed_users")).then(snapshot=>{
@@ -217,6 +250,7 @@ updateDashboard()
 })
 
 }
+
 
 function renderTable(){
 
@@ -286,6 +320,7 @@ renderPagination()
 
 }
 
+
 window.trackEdit=function(cid,field,value){
 
 if(!editedRows[cid]) editedRows[cid]={}
@@ -295,6 +330,7 @@ editedRows[cid][field]=value
 document.getElementById("row-"+cid).classList.add("edited")
 
 }
+
 
 function showConfirm(message,callback){
 
@@ -316,6 +352,7 @@ loadUsers()
 
 }
 
+
 document.getElementById("confirmYes").onclick=function(){
 
 if(confirmAction){
@@ -331,6 +368,7 @@ loadUsers()
 bootstrap.Modal.getInstance(document.getElementById("confirmModal")).hide()
 
 }
+
 
 window.confirmSave=function(cid){
 
@@ -350,6 +388,7 @@ delete editedRows[cid]
 
 }
 
+
 window.confirmDelete=function(cid){
 
 showConfirm("Delete this license?",()=>{
@@ -359,6 +398,7 @@ return remove(ref(db,"licensed_users/"+cid))
 })
 
 }
+
 
 function animateCounter(el,target){
 
@@ -384,6 +424,7 @@ el.innerText=Math.floor(current)
 
 }
 
+
 function updateDashboard(){
 
 let total=0
@@ -407,6 +448,7 @@ animateCounter(expiredLicenses,expired)
 
 }
 
+
 function renderPagination(){
 
 const totalPages=Math.ceil(sortedData.length/rowsPerPage)
@@ -429,6 +471,7 @@ container.innerHTML+=`
 
 }
 
+
 window.changePage=function(page){
 
 currentPage=page
@@ -436,6 +479,7 @@ currentPage=page
 renderTable()
 
 }
+
 
 window.sortTable=function(field){
 
@@ -454,6 +498,7 @@ renderTable()
 
 }
 
+
 searchBox.addEventListener("keyup",function(){
 
 const val=this.value.toLowerCase()
@@ -471,6 +516,7 @@ currentPage=1
 renderTable()
 
 })
+
 
 loadUsers()
 
