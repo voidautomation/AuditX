@@ -1,529 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>AuditX User License Management</title>
+<title>AuditX | Enterprise License Registry</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 <style>
-
-body{
-background:#f4f6f9;
-font-family:Segoe UI,Roboto;
-color:#2c3e50;
+:root {
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-50: #f8fafc;
+  --brand-accent: #0284c7;
 }
 
-.page-header{
-font-weight:600;
+body {
+  background-color: var(--slate-50);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #334155;
 }
 
-/* Cards */
-
-.card{
-border:none;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:.25s;
+/* --- Auth --- */
+#loginScreen {
+  height: 100vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  background: radial-gradient(circle at top right, var(--slate-800), var(--slate-900));
 }
 
-.card:hover{
-transform:translateY(-3px);
-box-shadow:0 6px 20px rgba(0,0,0,0.15);
+.auth-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: white;
+  width: 100%;
+  max-width: 400px;
 }
 
-.stat-number{
-font-size:30px;
-font-weight:600;
+/* --- Dashboard --- */
+.navbar-custom { background-color: var(--slate-900); padding: 1rem 2rem; }
+
+.stat-card {
+  border: none;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 5px solid var(--slate-800);
+}
+.stat-card.active-licenses { border-left-color: #10b981; }
+.stat-card.expired-licenses { border-left-color: #ef4444; }
+
+/* --- Table --- */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Table */
-
-.table{
-background:white;
-border-radius:10px;
-overflow:hidden;
+.table thead th {
+  background-color: #f1f5f9;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem;
 }
 
-.table thead{
-background:#2f3e4e;
-color:white;
-cursor:pointer;
+[contenteditable="true"] {
+  padding: 4px 8px;
+  transition: all 0.2s;
+  outline: none;
+}
+[contenteditable="true"]:focus {
+  background-color: #f1f5f9;
+  box-shadow: 0 0 0 2px var(--brand-accent);
+  border-radius: 4px;
 }
 
-.table-hover tbody tr:hover{
-background:#f1f4f7;
-}
+.row-edited { background-color: #fffbeb !important; }
 
-.edited{
-background:#fff8e1 !important;
-}
-
-.page-link{
-cursor:pointer;
-}
-
-.confirm-box{
-text-align:center;
-padding:25px;
-}
-
-/* Mobile */
-
-@media (max-width:768px){
-
-.page-header{
-font-size:20px;
-}
-
-.stat-number{
-font-size:24px;
-}
-
-.btn{
-font-size:12px;
-padding:4px 8px;
-}
-
-}
-
+/* Toast Notifications */
+.toast-container { position: fixed; top: 20px; right: 20px; z-index: 9999; }
 </style>
-
 </head>
 
 <body>
 
-<div class="container-fluid p-3 p-md-4">
-
-<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-
-<h4 class="page-header mb-3 mb-md-0">AuditX License Management</h4>
-
-<input type="text"
-class="form-control w-100 w-md-auto"
-style="max-width:300px"
-placeholder="Search..."
-id="searchBox">
-
+<div class="toast-container">
+  <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        <i class="bi bi-check-circle-fill me-2"></i> Registry updated successfully.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
 </div>
 
-
-<!-- Dashboard -->
-
-<div class="row g-3 mb-4">
-
-<div class="col-12 col-md-4">
-<div class="card text-center p-3">
-<div>Total Licenses</div>
-<div class="stat-number text-primary" id="totalLicenses">0</div>
-</div>
-</div>
-
-<div class="col-12 col-md-4">
-<div class="card text-center p-3">
-<div>Active</div>
-<div class="stat-number text-success" id="activeLicenses">0</div>
-</div>
-</div>
-
-<div class="col-12 col-md-4">
-<div class="card text-center p-3">
-<div>Expired</div>
-<div class="stat-number text-danger" id="expiredLicenses">0</div>
-</div>
+<div id="loginScreen">
+  <div class="auth-card p-5">
+    <div class="text-center mb-4">
+      <div class="bg-primary d-inline-block p-3 rounded-circle mb-3" style="background-color: var(--brand-accent)!important;">
+        <i class="bi bi-shield-lock-fill text-white fs-2"></i>
+      </div>
+      <h4 class="fw-bold text-dark">AuditX Portal</h4>
+      <p class="text-muted small">Systems Administration Access</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label small fw-bold">ID / Email</label>
+      <input type="email" id="email" class="form-control" placeholder="admin@auditx.com">
+    </div>
+    <div class="mb-4">
+      <label class="form-label small fw-bold">Credential</label>
+      <input type="password" id="password" class="form-control" placeholder="••••••••">
+    </div>
+    <button id="loginBtn" class="btn btn-primary w-100 fw-bold py-2" style="background-color: var(--brand-accent); border:none;" onclick="login(event)">
+      Secure Login
+    </button>
+    <div id="loginError" class="text-danger mt-3 text-center small fw-bold"></div>
+  </div>
 </div>
 
+<div id="app" style="display:none;">
+  <nav class="navbar navbar-custom navbar-dark mb-4">
+    <div class="container-fluid">
+      <span class="navbar-brand fw-bold"><i class="bi bi-cpu-fill me-2"></i> AuditX Registry</span>
+      <button class="btn btn-sm btn-outline-light px-3 fw-bold" onclick="logout()">Terminate Session</button>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-4 pb-5">
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="stat-card p-4">
+          <div class="stat-title text-muted small fw-bold">Total Registry</div>
+          <div class="h2 fw-bold mt-1" id="totalLicenses">0</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card active-licenses p-4">
+          <div class="stat-title text-muted small fw-bold">Authorized Access</div>
+          <div class="h2 fw-bold mt-1 text-success" id="activeLicenses">0</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card expired-licenses p-4">
+          <div class="stat-title text-muted small fw-bold">Expired Clearances</div>
+          <div class="h2 fw-bold mt-1 text-danger" id="expiredLicenses">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="input-group" style="max-width: 400px;">
+        <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+        <input type="text" class="form-control border-start-0 ps-0" placeholder="Filter registry..." id="searchBox">
+      </div>
+      <button class="btn btn-dark fw-bold px-4" data-bs-toggle="modal" data-bs-target="#addUserModal">
+        <i class="bi bi-plus-lg me-2"></i>Provision User
+      </button>
+    </div>
+
+    <div class="table-container table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th onclick="sortTable('cid')" style="cursor:pointer">CID <i class="bi bi-arrow-down-up ms-1"></i></th>
+            <th onclick="sortTable('windowsId')" style="cursor:pointer">Windows ID <i class="bi bi-arrow-down-up ms-1"></i></th>
+            <th onclick="sortTable('fullName')" style="cursor:pointer">Full Name <i class="bi bi-arrow-down-up ms-1"></i></th>
+            <th onclick="sortTable('email')" style="cursor:pointer">Email <i class="bi bi-arrow-down-up ms-1"></i></th>
+            <th onclick="sortTable('expiry')" style="cursor:pointer">Expiry <i class="bi bi-arrow-down-up ms-1"></i></th>
+            <th>Status</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
-
-<!-- Table -->
-
-<div class="card p-3">
-
-<div class="table-responsive">
-
-<table class="table table-hover align-middle">
-
-<thead>
-
-<tr>
-
-<th onclick="sortTable('cid')">CID</th>
-<th onclick="sortTable('windowsId')">Windows ID</th>
-<th onclick="sortTable('fullName')">Name</th>
-<th onclick="sortTable('email')">Email</th>
-<th onclick="sortTable('expiry')">Expiry</th>
-<th>Status</th>
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody id="usersTable"></tbody>
-
-</table>
-
+<div class="modal fade" id="addUserModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="fw-bold">Provision New Access</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label small fw-bold">Unique CID</label><input type="text" id="newCid" class="form-control"></div>
+        <div class="mb-3"><label class="form-label small fw-bold">Windows ID</label><input type="text" id="newWinId" class="form-control"></div>
+        <div class="mb-3"><label class="form-label small fw-bold">Full Name</label><input type="text" id="newName" class="form-control"></div>
+        <div class="mb-3"><label class="form-label small fw-bold">Email</label><input type="email" id="newEmail" class="form-control"></div>
+        <div class="mb-3"><label class="form-label small fw-bold">Expiry Date</label><input type="date" id="newExpiry" class="form-control"></div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="createNewUser()">Create Provision</button>
+      </div>
+    </div>
+  </div>
 </div>
-
-<nav class="mt-3">
-<ul class="pagination justify-content-center justify-content-md-end" id="pagination"></ul>
-</nav>
-
-</div>
-
-</div>
-
-
-<!-- Confirmation Modal -->
-
-<div class="modal fade" id="confirmModal">
-
-<div class="modal-dialog modal-dialog-centered">
-
-<div class="modal-content">
-
-<div class="confirm-box">
-
-<h5 id="confirmMessage"></h5>
-
-<div class="mt-4">
-
-<button class="btn btn-success me-2" id="confirmYes">Yes</button>
-<button class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 
 <script type="module">
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, get, update, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getDatabase, ref, get, update, remove, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
-
-apiKey:"YOUR_API_KEY",
-databaseURL:"https://sap-itgc-audit-default-rtdb.asia-southeast1.firebasedatabase.app",
-projectId:"sap-itgc-audit"
-
+  apiKey: "AIzaSyCZItL-5QgAIn_BQ5GZcyneaPGZJi6xlFw",
+  databaseURL: "https://sap-itgc-audit-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sap-itgc-audit"
 };
 
-const app = initializeApp(firebaseConfig)
-const db = getDatabase(app)
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getDatabase(firebaseApp);
+const auth = getAuth(firebaseApp);
 
-const table = document.getElementById("usersTable")
+let data = {};
+let sortedData = [];
+let editedRows = {};
 
-let data = {}
-let sortedData = []
-let editedRows = {}
+/* 🔐 AUTH */
+window.login = (e) => {
+  const btn = e.target;
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("password").value;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
+  signInWithEmailAndPassword(auth, email, pass).catch(err => {
+    document.getElementById("loginError").innerText = "Authentication failed.";
+    btn.disabled = false; btn.innerText = "Secure Login";
+  });
+};
 
-let currentPage = 1
-const rowsPerPage = 10
+window.logout = () => signOut(auth);
 
-let confirmAction = null
+onAuthStateChanged(auth, (user) => {
+  document.getElementById("loginScreen").style.display = user ? "none" : "flex";
+  document.getElementById("app").style.display = user ? "block" : "none";
+  if (user) loadRegistry();
+});
 
-
-function loadUsers(){
-
-get(ref(db,"licensed_users")).then(snapshot=>{
-
-data = snapshot.val() || {}
-
-sortedData = Object.entries(data)
-
-renderTable()
-
-updateDashboard()
-
-})
-
+/* 📥 CORE LOGIC */
+async function loadRegistry() {
+  const snapshot = await get(ref(db, "licensed_users"));
+  data = snapshot.val() || {};
+  sortedData = Object.entries(data);
+  renderGrid();
+  updateStats();
 }
 
-
-function renderTable(){
-
-table.innerHTML=""
-
-const start=(currentPage-1)*rowsPerPage
-const end=start+rowsPerPage
-
-const pageData=sortedData.slice(start,end)
-
-pageData.forEach(([cid,u])=>{
-
-let status="Active"
-
-const expiry=new Date(u.expiry)
-
-if(new Date()>expiry) status="Expired"
-
-table.innerHTML+=`
-
-<tr id="row-${cid}">
-
-<td>${cid}</td>
-
-<td>${u.windowsId}</td>
-
-<td contenteditable="true"
-oninput="trackEdit('${cid}','fullName',this.innerText)">
-${u.fullName}
-</td>
-
-<td contenteditable="true"
-oninput="trackEdit('${cid}','email',this.innerText)">
-${u.email}
-</td>
-
-<td>
-<input type="date"
-value="${u.expiry}"
-class="form-control form-control-sm"
-onchange="trackEdit('${cid}','expiry',this.value)">
-</td>
-
-<td>${status}</td>
-
-<td>
-
-<button class="btn btn-sm btn-success me-1"
-onclick="confirmSave('${cid}')">
-Save
-</button>
-
-<button class="btn btn-sm btn-danger"
-onclick="confirmDelete('${cid}')">
-Delete
-</button>
-
-</td>
-
-</tr>
-
-`
-
-})
-
-renderPagination()
-
+function renderGrid() {
+  const tbody = document.getElementById("usersTable");
+  tbody.innerHTML = "";
+  sortedData.forEach(([cid, u]) => {
+    const expired = new Date() > new Date(u.expiry);
+    const row = document.createElement("tr");
+    row.id = `row-${cid}`;
+    row.innerHTML = `
+      <td class="fw-bold text-muted">${cid}</td>
+      <td contenteditable="true" oninput="trackEdit('${cid}','windowsId',this.innerText)" class="font-monospace text-primary">${u.windowsId}</td>
+      <td contenteditable="true" oninput="trackEdit('${cid}','fullName',this.innerText)">${u.fullName}</td>
+      <td contenteditable="true" oninput="trackEdit('${cid}','email',this.innerText)">${u.email}</td>
+      <td><input type="date" value="${u.expiry}" class="form-control form-control-sm border-0" onchange="trackEdit('${cid}','expiry',this.value)"></td>
+      <td><span class="badge ${expired ? 'bg-danger' : 'bg-success'} rounded-pill">${expired ? 'Expired' : 'Active'}</span></td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-success me-1" onclick="saveEdit('${cid}')" id="btn-${cid}"><i class="bi bi-cloud-arrow-up"></i> Save</button>
+        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser('${cid}')"><i class="bi bi-trash"></i></button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
 }
 
+window.trackEdit = (cid, field, value) => {
+  if (!editedRows[cid]) editedRows[cid] = {};
+  editedRows[cid][field] = value.trim();
+  document.getElementById(`row-${cid}`).classList.add("row-edited");
+};
 
-window.trackEdit=function(cid,field,value){
+window.saveEdit = async (cid) => {
+  if (!editedRows[cid]) return;
 
-if(!editedRows[cid]) editedRows[cid]={}
+  // 1. Ask for confirmation
+  if (!confirm(`Commit modifications for registry entry ${cid}?`)) return;
 
-editedRows[cid][field]=value
+  const btn = document.getElementById(`btn-${cid}`);
+  const originalHtml = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
 
-document.getElementById("row-"+cid).classList.add("edited")
+  try {
+    await update(ref(db, `licensed_users/${cid}`), editedRows[cid]);
+    delete editedRows[cid];
+    
+    // 2. Show Success Toast
+    const toast = new bootstrap.Toast(document.getElementById('successToast'));
+    toast.show();
+    
+    loadRegistry();
+  } catch (e) {
+    alert("Error saving record: " + e.message);
+    btn.disabled = false;
+    btn.innerHTML = originalHtml;
+  }
+};
 
+window.deleteUser = async (cid) => {
+  if (confirm(`Revoke access for ${cid}?`)) {
+    await remove(ref(db, `licensed_users/${cid}`));
+    loadRegistry();
+  }
+};
+
+window.createNewUser = async () => {
+  const cid = document.getElementById("newCid").value;
+  if (!cid) return alert("CID required");
+  const payload = {
+    windowsId: document.getElementById("newWinId").value,
+    fullName: document.getElementById("newName").value,
+    email: document.getElementById("newEmail").value,
+    expiry: document.getElementById("newExpiry").value
+  };
+  await set(ref(db, `licensed_users/${cid}`), payload);
+  bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
+  loadRegistry();
+};
+
+function updateStats() {
+  const vals = Object.values(data);
+  const expiredCount = vals.filter(u => new Date() > new Date(u.expiry)).length;
+  document.getElementById("totalLicenses").innerText = vals.length;
+  document.getElementById("activeLicenses").innerText = vals.length - expiredCount;
+  document.getElementById("expiredLicenses").innerText = expiredCount;
 }
 
-
-function showConfirm(message,callback){
-
-document.getElementById("confirmMessage").innerText=message
-
-confirmAction=callback
-
-const modalElement=document.getElementById("confirmModal")
-
-const modal=new bootstrap.Modal(modalElement)
-
-modal.show()
-
-modalElement.addEventListener("hidden.bs.modal",function(){
-
-loadUsers()
-
-},{once:true})
-
-}
-
-
-document.getElementById("confirmYes").onclick=function(){
-
-if(confirmAction){
-
-confirmAction().then(()=>{
-
-loadUsers()
-
-})
-
-}
-
-bootstrap.Modal.getInstance(document.getElementById("confirmModal")).hide()
-
-}
-
-
-window.confirmSave=function(cid){
-
-if(!editedRows[cid]) return
-
-showConfirm("Save license changes?",()=>{
-
-return update(ref(db,"licensed_users/"+cid),editedRows[cid])
-
-.then(()=>{
-
-delete editedRows[cid]
-
-})
-
-})
-
-}
-
-
-window.confirmDelete=function(cid){
-
-showConfirm("Delete this license?",()=>{
-
-return remove(ref(db,"licensed_users/"+cid))
-
-})
-
-}
-
-
-function animateCounter(el,target){
-
-let current=0
-const step=target/40
-
-const timer=setInterval(()=>{
-
-current+=step
-
-if(current>=target){
-
-el.innerText=target
-clearInterval(timer)
-
-}else{
-
-el.innerText=Math.floor(current)
-
-}
-
-},20)
-
-}
-
-
-function updateDashboard(){
-
-let total=0
-let active=0
-let expired=0
-
-for(const cid in data){
-
-total++
-
-const expiry=new Date(data[cid].expiry)
-
-if(new Date()>expiry) expired++
-else active++
-
-}
-
-animateCounter(totalLicenses,total)
-animateCounter(activeLicenses,active)
-animateCounter(expiredLicenses,expired)
-
-}
-
-
-function renderPagination(){
-
-const totalPages=Math.ceil(sortedData.length/rowsPerPage)
-
-const container=document.getElementById("pagination")
-
-container.innerHTML=""
-
-for(let i=1;i<=totalPages;i++){
-
-container.innerHTML+=`
-
-<li class="page-item ${i===currentPage?'active':''}">
-<a class="page-link" onclick="changePage(${i})">${i}</a>
-</li>
-
-`
-
-}
-
-}
-
-
-window.changePage=function(page){
-
-currentPage=page
-
-renderTable()
-
-}
-
-
-window.sortTable=function(field){
-
-sortedData.sort((a,b)=>{
-
-let v1=a[1][field] || a[0]
-let v2=b[1][field] || b[0]
-
-return v1.toString().localeCompare(v2.toString())
-
-})
-
-currentPage=1
-
-renderTable()
-
-}
-
-
-searchBox.addEventListener("keyup",function(){
-
-const val=this.value.toLowerCase()
-
-sortedData=Object.entries(data).filter(([cid,u])=>{
-
-return cid.toLowerCase().includes(val) ||
-u.fullName.toLowerCase().includes(val) ||
-u.email.toLowerCase().includes(val)
-
-})
-
-currentPage=1
-
-renderTable()
-
-})
-
-
-loadUsers()
-
+document.getElementById("searchBox").addEventListener("input", (e) => {
+  const term = e.target.value.toLowerCase();
+  sortedData = Object.entries(data).filter(([cid, u]) => 
+    cid.toLowerCase().includes(term) || u.fullName.toLowerCase().includes(term) || u.windowsId.toLowerCase().includes(term)
+  );
+  renderGrid();
+});
+
+window.sortTable = (field) => {
+  sortedData.sort((a,b) => (a[1][field] || a[0]).toString().localeCompare((b[1][field] || b[0]).toString()));
+  renderGrid();
+};
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>
