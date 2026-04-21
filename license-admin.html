@@ -7,8 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -16,290 +15,1050 @@
 :root {
   --slate-900: #0f172a;
   --slate-800: #1e293b;
-  --slate-50: #f8fafc;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
   --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
   --brand-accent: #0ea5e9;
   --brand-accent-hover: #0284c7;
+  --brand-accent-light: #e0f2fe;
   --success-color: #10b981;
+  --success-light: #d1fae5;
   --danger-color: #ef4444;
+  --danger-light: #fee2e2;
+  --warning-color: #f59e0b;
+  --warning-light: #fef3c7;
+  --info-color: #6366f1;
+  --info-light: #e0e7ff;
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(255,255,255,0.2);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
 }
 
+* { box-sizing: border-box; }
+
 body {
-  background-color: var(--slate-50);
-  font-family: 'Inter', sans-serif;
-  color: #334155;
+  background-color: var(--slate-100);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--slate-700);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-size: 13px;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--slate-300); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--slate-400); }
 
 /* --- Animations --- */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-4px) rotate(1deg); }
+  66% { transform: translateY(2px) rotate(-1deg); }
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(14,165,233,0.3); }
+  50% { border-color: rgba(14,165,233,0.6); }
+}
+.fade-in { animation: fadeIn 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+.fade-in-scale { animation: fadeInScale 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+.slide-down { animation: slideDown 0.3s ease-out forwards; }
 
 /* --- Auth Screen --- */
 #loginScreen {
   height: 100vh;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at top right, #1e293b, #020617);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
   position: relative;
   overflow: hidden;
+}
+
+#loginScreen::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+#loginScreen::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+  bottom: -80px; left: -80px;
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
 }
 
 .auth-card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl), 0 0 80px rgba(14,165,233,0.05);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
   width: 100%;
-  max-width: 360px;
-  padding: 2rem;
+  max-width: 380px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  z-index: 1;
 }
+
+.auth-logo {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--brand-accent), var(--info-color));
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(14,165,233,0.25);
+  transition: transform 0.3s ease;
+}
+.auth-logo:hover { transform: scale(1.05) rotate(3deg); }
 
 .auth-card .form-control {
   background: var(--slate-50);
-  border: 1px solid var(--slate-200);
-  padding: 0.6rem 0.75rem;
+  border: 1.5px solid var(--slate-200);
+  padding: 0.65rem 0.85rem;
   font-size: 13px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
 }
-
-.btn-primary {
-  background-color: var(--brand-accent);
-  border: none;
-  font-size: 13px;
-}
-
-/* --- Dashboard --- */
-.navbar-custom { 
-  background-color: var(--slate-900); 
-  padding: 0.6rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.stat-card {
-  border: none;
-  border-radius: 8px;
+.auth-card .form-control:focus {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
   background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-  transition: transform 0.2s ease;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, var(--brand-accent), #0369a1);
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0.7rem;
+  border-radius: var(--radius-sm);
+  color: white;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
-  border-top: 3px solid var(--slate-800);
-  padding: 0.75rem 1rem !important;
 }
-.stat-card.active-licenses { border-top-color: var(--success-color); }
-.stat-card.expired-licenses { border-top-color: var(--danger-color); }
+.btn-login:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(14,165,233,0.3);
+  color: white;
+}
+.btn-login:active { transform: translateY(0); }
 
-.stat-icon-bg {
+/* --- Navbar --- */
+.navbar-custom {
+  background: linear-gradient(135deg, var(--slate-900) 0%, #111827 100%);
+  padding: 0;
+  height: 52px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 1.25rem;
+}
+
+.nav-brand-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--brand-accent), var(--info-color));
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.nav-user-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-user-avatar {
+  width: 30px; height: 30px;
+  background: linear-gradient(135deg, var(--brand-accent), var(--info-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+.btn-logout {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--slate-300);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+.btn-logout:hover {
+  background: rgba(239,68,68,0.15);
+  border-color: rgba(239,68,68,0.3);
+  color: #fca5a5;
+}
+
+/* --- Stats Cards --- */
+.stat-card {
+  border: none;
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem 1.25rem !important;
+  cursor: default;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card::before {
+  content: '';
   position: absolute;
-  right: -5px;
-  bottom: -10px;
-  font-size: 3.5rem;
-  opacity: 0.05;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--slate-300);
+  border-radius: 3px 3px 0 0;
+}
+.stat-card.total-licenses::before { background: linear-gradient(90deg, var(--brand-accent), var(--info-color)); }
+.stat-card.active-licenses::before { background: linear-gradient(90deg, var(--success-color), #34d399); }
+.stat-card.expired-licenses::before { background: linear-gradient(90deg, var(--danger-color), #f87171); }
+.stat-card.expiring-soon::before { background: linear-gradient(90deg, var(--warning-color), #fbbf24); }
+
+.stat-icon-wrapper {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.stat-icon-wrapper.total { background: var(--brand-accent-light); color: var(--brand-accent); }
+.stat-icon-wrapper.active { background: var(--success-light); color: var(--success-color); }
+.stat-icon-wrapper.expired { background: var(--danger-light); color: var(--danger-color); }
+.stat-icon-wrapper.warning { background: var(--warning-light); color: var(--warning-color); }
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--slate-400);
+}
+.stat-change {
+  font-size: 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  border-radius: 20px;
 }
 
-.h2.fw-bold { font-size: 1.5rem; }
+/* --- Toolbar --- */
+.toolbar {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--slate-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 
-/* --- Table & Inputs --- */
+.search-wrapper {
+  position: relative;
+  max-width: 320px;
+  flex: 1;
+}
+.search-wrapper .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--slate-400);
+  font-size: 14px;
+}
+.search-wrapper .clear-search {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--slate-400);
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+  padding: 2px;
+  line-height: 1;
+}
+.search-wrapper .clear-search.visible { display: block; }
+.search-wrapper .clear-search:hover { color: var(--slate-600); }
+
+.search-input {
+  background: var(--slate-50);
+  font-size: 12.5px;
+  padding: 0.45rem 2rem 0.45rem 2rem;
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  transition: all 0.2s ease;
+}
+.search-input:focus {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.08);
+  background: white;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filter-badge {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1.5px solid var(--slate-200);
+  background: white;
+  color: var(--slate-500);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.filter-badge:hover { border-color: var(--brand-accent); color: var(--brand-accent); }
+.filter-badge.active-filter {
+  background: var(--brand-accent-light);
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+}
+
+.btn-provision {
+  background: linear-gradient(135deg, var(--slate-800), var(--slate-900));
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-provision:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15,23,42,0.2);
+  color: white;
+}
+
+.btn-export {
+  background: white;
+  color: var(--slate-600);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--slate-200);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-export:hover {
+  border-color: var(--success-color);
+  color: var(--success-color);
+  background: var(--success-light);
+}
+
+/* --- Table --- */
 .table-container {
   background: white;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--slate-200);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
+.table { margin-bottom: 0; }
+
 .table thead th {
-  background-color: #f8fafc;
-  color: #64748b;
-  font-size: 11px;
-  padding: 0.6rem 1rem;
-  border-bottom: 1px solid var(--slate-200);
+  background: linear-gradient(180deg, var(--slate-50), #f1f5f9);
+  color: var(--slate-500);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 0.7rem 1rem;
+  border-bottom: 1.5px solid var(--slate-200);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  user-select: none;
+  transition: color 0.2s ease;
 }
+.table thead th:hover { color: var(--brand-accent); }
+.table thead th.sorted { color: var(--brand-accent); }
+
+.table tbody tr {
+  transition: all 0.15s ease;
+}
+.table tbody tr:hover { background-color: rgba(14,165,233,0.03); }
 .table tbody td {
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1rem;
   font-size: 12.5px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--slate-100);
+  vertical-align: middle;
 }
 
-.row-edited { background-color: #fffbeb !important; }
-
-.search-input {
-  background-color: #f8fafc;
-  font-size: 13px;
-  padding: 0.4rem 0.75rem;
+.table tbody td[contenteditable="true"] {
+  cursor: text;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  outline: none;
+}
+.table tbody td[contenteditable="true"]:hover {
+  background: var(--slate-50);
+}
+.table tbody td[contenteditable="true"]:focus {
+  background: var(--brand-accent-light);
+  box-shadow: inset 0 0 0 1.5px var(--brand-accent);
 }
 
-.badge {
-  padding: 0.35em 0.6em;
+.row-edited {
+  background-color: var(--warning-light) !important;
+  border-left: 3px solid var(--warning-color);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.3em 0.7em;
   font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.status-badge.active {
+  background: var(--success-light);
+  color: var(--success-color);
+}
+.status-badge.expired {
+  background: var(--danger-light);
+  color: var(--danger-color);
+}
+.status-badge.expiring {
+  background: var(--warning-light);
+  color: var(--warning-color);
+}
+.status-badge .status-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Action Buttons */
+.btn-action {
+  width: 28px; height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+}
+.btn-save-row {
+  background: var(--success-light);
+  color: var(--success-color);
+  border-color: transparent;
+}
+.btn-save-row:hover {
+  background: var(--success-color);
+  color: white;
+  transform: translateY(-1px);
+}
+.btn-delete-row {
+  background: transparent;
+  color: var(--slate-400);
+  border-color: transparent;
+}
+.btn-delete-row:hover {
+  background: var(--danger-light);
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+/* CID Badge */
+.cid-badge {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-600);
+  background: var(--slate-100);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.3px;
+}
+
+/* Win ID */
+.win-id {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11.5px;
+  color: var(--brand-accent);
+  font-weight: 500;
+}
+
+/* Date input */
+.date-input {
+  border: 1.5px solid transparent;
+  background: transparent;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--slate-600);
+  transition: all 0.2s ease;
+  width: 130px;
+}
+.date-input:hover { background: var(--slate-50); border-color: var(--slate-200); }
+.date-input:focus {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 2px rgba(14,165,233,0.1);
+  background: white;
+  outline: none;
+}
+
+/* --- Empty State --- */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.empty-icon {
+  width: 72px; height: 72px;
+  background: var(--slate-100);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--slate-300);
+  margin-bottom: 1rem;
+}
+
+/* --- Loading Skeleton --- */
+.skeleton-row td {
+  padding: 0.7rem 1rem !important;
+}
+.skeleton {
+  height: 14px;
+  background: linear-gradient(90deg, var(--slate-100) 25%, var(--slate-200) 50%, var(--slate-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* --- Modal Enhancements --- */
+.modal-content {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+.modal-header {
+  background: linear-gradient(135deg, var(--slate-900), #111827);
+  color: white;
+  padding: 1.25rem 1.5rem;
+  border: none;
+}
+.modal-header .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+}
+.modal-header .btn-close:hover { opacity: 1; }
+
+.modal-body { padding: 1.5rem; }
+
+.modal-footer {
+  background: var(--slate-50);
+  border-top: 1px solid var(--slate-200);
+  padding: 1rem 1.5rem;
+}
+
+.form-label-custom {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.form-control-custom {
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  background: white;
+}
+.form-control-custom:focus {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.08);
+}
+.form-control-custom.is-invalid {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.08);
+}
+
+.validation-msg {
+  font-size: 10.5px;
+  color: var(--danger-color);
+  margin-top: 3px;
+  display: none;
+  font-weight: 500;
+}
+.validation-msg.show { display: block; }
+
+.btn-create {
+  background: linear-gradient(135deg, var(--brand-accent), #0369a1);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+.btn-create:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14,165,233,0.3);
+  color: white;
+}
+.btn-cancel {
+  background: white;
+  border: 1.5px solid var(--slate-200);
+  color: var(--slate-600);
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Toast Enhancement --- */
+.toast-custom {
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  min-width: 300px;
+}
+.toast-custom .toast-body {
+  padding: 0.75rem 1rem;
+  font-size: 12.5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Footer --- */
+.app-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--slate-400);
+  font-size: 11px;
+}
+
+/* --- Confirm Modal --- */
+.confirm-modal .modal-content {
+  max-width: 380px;
+  margin: auto;
+}
+.confirm-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+.confirm-icon.warning { background: var(--warning-light); color: var(--warning-color); }
+.confirm-icon.danger { background: var(--danger-light); color: var(--danger-color); }
+
+/* --- Record Count --- */
+.record-count {
+  font-size: 11px;
+  color: var(--slate-400);
+  font-weight: 500;
+}
+
+/* --- Last Sync --- */
+.sync-indicator {
+  font-size: 10px;
+  color: var(--slate-400);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sync-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--success-color);
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .search-wrapper { max-width: 100%; }
+  .toolbar-actions { justify-content: space-between; }
+  .stat-value { font-size: 1.4rem; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- Toast Container -->
 <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999">
-  <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body fw-medium" style="font-size: 12px;">
-        <i class="bi bi-check-circle-fill me-2"></i> Registry updated.
-      </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+  <div id="successToast" class="toast toast-custom align-items-center text-white bg-success" role="alert">
+    <div class="toast-body">
+      <i class="bi bi-check-circle-fill"></i>
+      <span id="toastMessage">Registry updated successfully.</span>
+    </div>
+  </div>
+  <div id="errorToast" class="toast toast-custom align-items-center text-white bg-danger" role="alert">
+    <div class="toast-body">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <span id="errorToastMessage">An error occurred.</span>
     </div>
   </div>
 </div>
 
+<!-- ===== LOGIN SCREEN ===== -->
 <div id="loginScreen">
-  <div class="auth-card fade-in">
+  <div class="auth-card fade-in-scale">
     <div class="text-center mb-4">
-      <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-2 shadow-sm" style="width: 48px; height: 48px; background-color: var(--brand-accent);">
+      <div class="auth-logo mx-auto mb-3">
         <i class="bi bi-shield-lock-fill text-white fs-4"></i>
       </div>
-      <h5 class="fw-bold text-dark mb-0">AuditX Portal</h5>
-      <p class="text-muted small">Systems Administration</p>
+      <h5 class="fw-bold text-dark mb-1" style="font-size: 18px;">AuditX Portal</h5>
+      <p class="text-muted mb-0" style="font-size: 12px;">License Management System</p>
     </div>
-    
+
     <div class="mb-3">
-      <label class="form-label small fw-bold text-muted mb-1">ID / Email</label>
-      <input type="email" id="email" class="form-control" placeholder="admin@auditx.com">
+      <label class="form-label-custom">ID / Email</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0" style="border: 1.5px solid var(--slate-200); border-right: none;">
+          <i class="bi bi-person text-muted" style="font-size: 14px;"></i>
+        </span>
+        <input type="email" id="email" class="form-control border-start-0" style="border: 1.5px solid var(--slate-200); border-left: none; font-size: 13px; padding: 0.6rem;" placeholder="admin@auditx.com">
+      </div>
     </div>
-    
+
     <div class="mb-4">
-      <label class="form-label small fw-bold text-muted mb-1">Credential</label>
-      <input type="password" id="password" class="form-control" placeholder="••••••••">
+      <label class="form-label-custom">Credential</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0" style="border: 1.5px solid var(--slate-200); border-right: none;">
+          <i class="bi bi-key text-muted" style="font-size: 14px;"></i>
+        </span>
+        <input type="password" id="password" class="form-control border-start-0" style="border: 1.5px solid var(--slate-200); border-left: none; font-size: 13px; padding: 0.6rem;" placeholder="••••••••">
+      </div>
     </div>
-    
-    <button id="loginBtn" class="btn btn-primary w-100 fw-bold py-2 rounded-2" onclick="login(event)">
-      Secure Login
+
+    <button id="loginBtn" class="btn btn-login w-100 py-2 rounded-2" onclick="login(event)">
+      <i class="bi bi-lock-fill me-1"></i> Secure Login
     </button>
     <div id="loginError" class="text-danger mt-3 text-center small fw-bold"></div>
+
+    <div class="text-center mt-4 pt-3" style="border-top: 1px solid var(--slate-100);">
+      <span class="text-muted" style="font-size: 10px;">
+        <i class="bi bi-shield-check me-1"></i> Encrypted Connection &bull; v2.0
+      </span>
+    </div>
   </div>
 </div>
 
+<!-- ===== DASHBOARD ===== -->
 <div id="app" style="display:none;" class="fade-in">
-  <nav class="navbar navbar-custom navbar-dark mb-3">
-    <div class="container-fluid px-2">
-      <span class="navbar-brand fw-bold d-flex align-items-center py-0">
-        <i class="bi bi-shield-fill-check text-info me-2 fs-5"></i> 
-        <span style="font-size: 15px;">AuditX <span class="fw-light opacity-75">License Manager</span></span>
-      </span>
-      <button class="btn btn-sm btn-outline-light px-2 py-1 fw-medium rounded-2" onclick="logout()" style="font-size: 11px;">
-        <i class="bi bi-box-arrow-right me-1"></i> Terminate
-      </button>
+
+  <!-- Navbar -->
+  <nav class="navbar-custom">
+    <div class="navbar-inner">
+      <div class="d-flex align-items-center">
+        <div class="nav-brand-icon">
+          <i class="bi bi-shield-fill-check text-white" style="font-size: 16px;"></i>
+        </div>
+        <div>
+          <span class="text-white fw-bold" style="font-size: 14px;">AuditX</span>
+          <span class="text-white fw-light opacity-50 ms-1" style="font-size: 13px;">License Manager</span>
+        </div>
+      </div>
+      <div class="nav-user-badge">
+        <div class="sync-indicator d-none d-md-flex">
+          <span class="sync-dot"></span>
+          <span>Live Sync</span>
+        </div>
+        <div class="nav-user-avatar" id="userAvatar">A</div>
+        <button class="btn btn-logout" onclick="logout()">
+          <i class="bi bi-box-arrow-right me-1"></i> Terminate
+        </button>
+      </div>
     </div>
   </nav>
 
-  <div class="container-fluid px-3 pb-4">
-    <div class="row g-3 mb-4">
-      <div class="col-md-4">
-        <div class="stat-card">
-          <div class="stat-content">
-            <div class="text-muted fw-bold text-uppercase" style="font-size: 10px;">Total Registry</div>
-            <div class="h2 fw-bold mt-1 mb-0" id="totalLicenses">0</div>
+  <div class="container-fluid px-3 py-3">
+
+    <!-- Stats Row -->
+    <div class="row g-3 mb-3">
+      <div class="col-6 col-lg-3">
+        <div class="stat-card total-licenses fade-in" style="animation-delay: 0.1s">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="stat-icon-wrapper total"><i class="bi bi-database-fill"></i></div>
           </div>
-          <i class="bi bi-database stat-icon-bg"></i>
+          <div class="stat-value" id="totalLicenses">-</div>
+          <div class="stat-label mt-1">Total Registry</div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="stat-card active-licenses">
-          <div class="stat-content">
-            <div class="text-muted fw-bold text-uppercase" style="font-size: 10px;">Authorized</div>
-            <div class="h2 fw-bold mt-1 mb-0 text-success" id="activeLicenses">0</div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card active-licenses fade-in" style="animation-delay: 0.2s">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="stat-icon-wrapper active"><i class="bi bi-person-check-fill"></i></div>
           </div>
-          <i class="bi bi-person-check stat-icon-bg text-success"></i>
+          <div class="stat-value text-success" id="activeLicenses">-</div>
+          <div class="stat-label mt-1">Authorized</div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="stat-card expired-licenses">
-          <div class="stat-content">
-            <div class="text-muted fw-bold text-uppercase" style="font-size: 10px;">Expired</div>
-            <div class="h2 fw-bold mt-1 mb-0 text-danger" id="expiredLicenses">0</div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card expiring-soon fade-in" style="animation-delay: 0.3s">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="stat-icon-wrapper warning"><i class="bi bi-exclamation-triangle-fill"></i></div>
           </div>
-          <i class="bi bi-person-x stat-icon-bg text-danger"></i>
+          <div class="stat-value" style="color: var(--warning-color);" id="expiringSoon">-</div>
+          <div class="stat-label mt-1">Expiring (30d)</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card expired-licenses fade-in" style="animation-delay: 0.4s">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="stat-icon-wrapper expired"><i class="bi bi-person-x-fill"></i></div>
+          </div>
+          <div class="stat-value text-danger" id="expiredLicenses">-</div>
+          <div class="stat-label mt-1">Expired</div>
         </div>
       </div>
     </div>
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <div class="input-group" style="max-width: 300px;">
-        <span class="input-group-text bg-white border-end-0 py-1 px-2"><i class="bi bi-search text-muted small"></i></span>
-        <input type="text" class="form-control border-start-0 ps-0 search-input" placeholder="Search registry..." id="searchBox">
+    <!-- Toolbar -->
+    <div class="toolbar mb-3 fade-in" style="animation-delay: 0.5s">
+      <div class="d-flex align-items-center gap-2 flex-wrap flex-grow-1">
+        <div class="search-wrapper">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search by CID, name, email, Win ID..." id="searchBox">
+          <button class="clear-search" id="clearSearch" title="Clear search"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="d-flex gap-1 flex-wrap">
+          <span class="filter-badge active-filter" data-filter="all" onclick="setFilter('all',this)">All</span>
+          <span class="filter-badge" data-filter="active" onclick="setFilter('active',this)">
+            <i class="bi bi-circle-fill text-success me-1" style="font-size:6px;vertical-align:middle;"></i>Active
+          </span>
+          <span class="filter-badge" data-filter="expiring" onclick="setFilter('expiring',this)">
+            <i class="bi bi-circle-fill text-warning me-1" style="font-size:6px;vertical-align:middle;"></i>Expiring
+          </span>
+          <span class="filter-badge" data-filter="expired" onclick="setFilter('expired',this)">
+            <i class="bi bi-circle-fill text-danger me-1" style="font-size:6px;vertical-align:middle;"></i>Expired
+          </span>
+        </div>
       </div>
-      <button class="btn btn-dark btn-sm fw-bold px-3 py-1.5 rounded-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#addUserModal">
-        <i class="bi bi-plus-lg me-1"></i>Provision
-      </button>
+      <div class="toolbar-actions">
+        <span class="record-count" id="recordCount">0 records</span>
+        <button class="btn btn-export" onclick="exportCSV()">
+          <i class="bi bi-download me-1"></i>Export
+        </button>
+        <button class="btn btn-provision" data-bs-toggle="modal" data-bs-target="#addUserModal">
+          <i class="bi bi-plus-lg me-1"></i>Provision
+        </button>
+      </div>
     </div>
 
-    <div class="table-container table-responsive">
-      <table class="table table-hover align-middle mb-0">
-        <thead>
-          <tr>
-            <th onclick="sortTable('cid')" style="cursor:pointer">CID <i class="bi bi-arrow-down-up ms-1"></i></th>
-            <th onclick="sortTable('windowsId')" style="cursor:pointer">Win ID <i class="bi bi-arrow-down-up ms-1"></i></th>
-            <th onclick="sortTable('fullName')" style="cursor:pointer">Full Name <i class="bi bi-arrow-down-up ms-1"></i></th>
-            <th onclick="sortTable('email')" style="cursor:pointer">Email <i class="bi bi-arrow-down-up ms-1"></i></th>
-            <th onclick="sortTable('expiry')" style="cursor:pointer">Expiry <i class="bi bi-arrow-down-up ms-1"></i></th>
-            <th>Status</th>
-            <th class="text-end">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="usersTable"></tbody>
-      </table>
+    <!-- Table -->
+    <div class="table-container fade-in" style="animation-delay: 0.6s">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th onclick="sortTable('cid')" style="cursor:pointer" id="th-cid">CID <i class="bi bi-arrow-down-up ms-1 opacity-50"></i></th>
+              <th onclick="sortTable('windowsId')" style="cursor:pointer" id="th-windowsId">Windows ID <i class="bi bi-arrow-down-up ms-1 opacity-50"></i></th>
+              <th onclick="sortTable('fullName')" style="cursor:pointer" id="th-fullName">Full Name <i class="bi bi-arrow-down-up ms-1 opacity-50"></i></th>
+              <th onclick="sortTable('email')" style="cursor:pointer" id="th-email">Email <i class="bi bi-arrow-down-up ms-1 opacity-50"></i></th>
+              <th onclick="sortTable('expiry')" style="cursor:pointer" id="th-expiry">Expiry <i class="bi bi-arrow-down-up ms-1 opacity-50"></i></th>
+              <th>Status</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable">
+            <!-- Skeleton loading rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="app-footer">
+      <i class="bi bi-shield-fill-check me-1"></i> AuditX License Manager v2.0 &bull; <span id="lastSync">Connecting...</span>
     </div>
   </div>
 </div>
 
+<!-- ===== ADD USER MODAL ===== -->
 <div class="modal fade" id="addUserModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h6 class="fw-bold mb-0" style="font-size: 15px;"><i class="bi bi-person-plus-fill me-2"></i>Provision New Access</h6>
+          <span class="opacity-50" style="font-size: 11px;">Create a new license registry entry</span>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label-custom">Client ID (CID) *</label>
+            <input type="text" id="newCid" class="form-control form-control-custom" placeholder="e.g., CID-2024-001">
+            <div class="validation-msg" id="cidError"><i class="bi bi-exclamation-circle me-1"></i>CID is required</div>
+          </div>
+          <div class="col-6">
+            <label class="form-label-custom">Windows ID *</label>
+            <input type="text" id="newWinId" class="form-control form-control-custom" placeholder="e.g., jsmith01">
+            <div class="validation-msg" id="winIdError"><i class="bi bi-exclamation-circle me-1"></i>Windows ID is required</div>
+          </div>
+          <div class="col-6">
+            <label class="form-label-custom">Expiry Date *</label>
+            <input type="date" id="newExpiry" class="form-control form-control-custom">
+            <div class="validation-msg" id="expiryError"><i class="bi bi-exclamation-circle me-1"></i>Expiry date is required</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label-custom">Full Name *</label>
+            <input type="text" id="newName" class="form-control form-control-custom" placeholder="e.g., John Smith">
+            <div class="validation-msg" id="nameError"><i class="bi bi-exclamation-circle me-1"></i>Full name is required</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label-custom">Email Address *</label>
+            <input type="email" id="newEmail" class="form-control form-control-custom" placeholder="e.g., john.smith@company.com">
+            <div class="validation-msg" id="emailError"><i class="bi bi-exclamation-circle me-1"></i>Valid email is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-create" onclick="createNewUser()" id="createBtn">
+          <i class="bi bi-plus-circle me-1"></i>Create Entry
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONFIRM MODAL ===== -->
+<div class="modal fade confirm-modal" id="confirmModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
-      <div class="modal-header border-0 pb-0 pt-3 px-3">
-        <h6 class="fw-bold mb-0">Provision New Access</h6>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" style="font-size: 10px;"></button>
+      <div class="modal-body text-center py-4">
+        <div class="confirm-icon warning" id="confirmIcon">
+          <i class="bi bi-exclamation-triangle-fill" id="confirmIconInner"></i>
+        </div>
+        <h6 class="fw-bold mb-2" id="confirmTitle">Confirm Action</h6>
+        <p class="text-muted small mb-0" id="confirmMessage">Are you sure you want to proceed?</p>
       </div>
-      <div class="modal-body px-3 pt-3">
-        <div class="mb-2">
-          <label class="form-label small fw-bold text-muted mb-1">CID</label>
-          <input type="text" id="newCid" class="form-control form-control-sm bg-light">
-        </div>
-        <div class="row g-2">
-          <div class="col-6 mb-2">
-            <label class="form-label small fw-bold text-muted mb-1">Win ID</label>
-            <input type="text" id="newWinId" class="form-control form-control-sm bg-light">
-          </div>
-          <div class="col-6 mb-2">
-            <label class="form-label small fw-bold text-muted mb-1">Expiry</label>
-            <input type="date" id="newExpiry" class="form-control form-control-sm bg-light">
-          </div>
-        </div>
-        <div class="mb-2">
-          <label class="form-label small fw-bold text-muted mb-1">Name</label>
-          <input type="text" id="newName" class="form-control form-control-sm bg-light">
-        </div>
-        <div class="mb-2">
-          <label class="form-label small fw-bold text-muted mb-1">Email</label>
-          <input type="email" id="newEmail" class="form-control form-control-sm bg-light">
-        </div>
-      </div>
-      <div class="modal-footer border-0 px-3 pb-3 pt-2">
-        <button type="button" class="btn btn-light btn-sm fw-medium px-3" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary btn-sm fw-medium px-3" onclick="createNewUser()">Create</button>
+      <div class="modal-footer justify-content-center border-0 pt-0 pb-3">
+        <button class="btn btn-cancel btn-sm px-3" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-sm px-3 fw-bold" id="confirmBtn" style="font-size: 12px;">Confirm</button>
       </div>
     </div>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, get, update, remove, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getDatabase, ref, get, update, remove, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -315,136 +1074,537 @@ const auth = getAuth(firebaseApp);
 let data = {};
 let sortedData = [];
 let editedRows = {};
+let currentFilter = 'all';
+let currentSort = { field: null, asc: true };
+let unsubscribe = null;
 
-/* 🔐 AUTH */
+/* ==============================
+   UTILITY FUNCTIONS
+   ============================== */
+
+function showToast(type, message) {
+  const toastId = type === 'success' ? 'successToast' : 'errorToast';
+  const msgId = type === 'success' ? 'toastMessage' : 'errorToastMessage';
+  document.getElementById(msgId).textContent = message;
+  const toast = new bootstrap.Toast(document.getElementById(toastId), { delay: 3000 });
+  toast.show();
+}
+
+function getStatus(expiryStr) {
+  const now = new Date();
+  const expiry = new Date(expiryStr);
+  if (now > expiry) return 'expired';
+  const diff = (expiry - now) / (1000 * 60 * 60 * 24);
+  if (diff <= 30) return 'expiring';
+  return 'active';
+}
+
+function formatDate(d) {
+  return new Date().toLocaleString('en-US', {
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: true
+  });
+}
+
+function showSkeleton() {
+  const tbody = document.getElementById("usersTable");
+  let skeletonHTML = '';
+  for (let i = 0; i < 6; i++) {
+    skeletonHTML += `
+      <tr class="skeleton-row">
+        <td><div class="skeleton" style="width:80px;"></div></td>
+        <td><div class="skeleton" style="width:70px;"></div></td>
+        <td><div class="skeleton" style="width:120px;"></div></td>
+        <td><div class="skeleton" style="width:150px;"></div></td>
+        <td><div class="skeleton" style="width:90px;"></div></td>
+        <td><div class="skeleton" style="width:60px;"></div></td>
+        <td><div class="skeleton" style="width:70px; margin-left:auto;"></div></td>
+      </tr>`;
+  }
+  tbody.innerHTML = skeletonHTML;
+}
+
+function showConfirm(title, message, type, callback) {
+  const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmMessage').textContent = message;
+  const icon = document.getElementById('confirmIcon');
+  const iconInner = document.getElementById('confirmIconInner');
+  const btn = document.getElementById('confirmBtn');
+
+  icon.className = 'confirm-icon ' + type;
+  if (type === 'danger') {
+    iconInner.className = 'bi bi-trash-fill';
+    btn.className = 'btn btn-sm px-3 fw-bold btn-danger';
+    btn.innerHTML = '<i class="bi bi-trash me-1"></i>Delete';
+  } else {
+    iconInner.className = 'bi bi-cloud-arrow-up-fill';
+    btn.className = 'btn btn-sm px-3 fw-bold btn-success';
+    btn.innerHTML = '<i class="bi bi-check-lg me-1"></i>Save';
+  }
+
+  const confirmBtn = document.getElementById('confirmBtn');
+  const newBtn = confirmBtn.cloneNode(true);
+  confirmBtn.parentNode.replaceChild(newBtn, confirmBtn);
+  newBtn.id = 'confirmBtn';
+  newBtn.className = btn.className;
+  newBtn.innerHTML = btn.innerHTML;
+
+  newBtn.addEventListener('click', () => {
+    modal.hide();
+    callback();
+  });
+  modal.show();
+}
+
+/* ==============================
+   AUTH
+   ============================== */
+
 window.login = (e) => {
-  const btn = e.target;
-  const email = document.getElementById("email").value;
+  const btn = document.getElementById('loginBtn');
+  const email = document.getElementById("email").value.trim();
   const pass = document.getElementById("password").value;
+  const errDiv = document.getElementById("loginError");
+  errDiv.textContent = '';
+
+  if (!email || !pass) {
+    errDiv.textContent = 'Please enter both email and password.';
+    return;
+  }
+
   btn.disabled = true;
-  btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
+  btn.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span> Authenticating...`;
+
   signInWithEmailAndPassword(auth, email, pass).catch(err => {
-    document.getElementById("loginError").innerText = "Authentication failed.";
-    btn.disabled = false; btn.innerText = "Secure Login";
+    let msg = 'Authentication failed.';
+    if (err.code === 'auth/user-not-found') msg = 'User not found.';
+    else if (err.code === 'auth/wrong-password') msg = 'Incorrect password.';
+    else if (err.code === 'auth/invalid-email') msg = 'Invalid email format.';
+    else if (err.code === 'auth/too-many-requests') msg = 'Too many attempts. Try again later.';
+    errDiv.textContent = msg;
+    btn.disabled = false;
+    btn.innerHTML = `<i class="bi bi-lock-fill me-1"></i> Secure Login`;
   });
 };
 
-window.logout = () => signOut(auth);
+// Allow Enter key to login
+document.getElementById('password').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('loginBtn').click();
+});
+document.getElementById('email').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('password').focus();
+});
+
+window.logout = () => {
+  if (unsubscribe) { unsubscribe(); unsubscribe = null; }
+  signOut(auth);
+};
 
 onAuthStateChanged(auth, (user) => {
   document.getElementById("loginScreen").style.display = user ? "none" : "flex";
   document.getElementById("app").style.display = user ? "block" : "none";
-  if (user) loadRegistry();
+  if (user) {
+    const initial = (user.email || 'A')[0].toUpperCase();
+    document.getElementById('userAvatar').textContent = initial;
+    startRealTimeSync();
+  }
 });
 
-/* 📥 CORE LOGIC */
-async function loadRegistry() {
-  const snapshot = await get(ref(db, "licensed_users"));
-  data = snapshot.val() || {};
-  sortedData = Object.entries(data);
-  renderGrid();
-  updateStats();
+/* ==============================
+   REAL-TIME SYNC (onValue)
+   ============================== */
+
+function startRealTimeSync() {
+  showSkeleton();
+  const dbRef = ref(db, "licensed_users");
+
+  unsubscribe = onValue(dbRef, (snapshot) => {
+    data = snapshot.val() || {};
+    applyFiltersAndRender();
+    updateStats();
+    document.getElementById('lastSync').textContent = `Last synced: ${formatDate(new Date())}`;
+  }, (error) => {
+    showToast('error', 'Failed to sync: ' + error.message);
+  });
 }
+
+/* ==============================
+   FILTERING & SORTING
+   ============================== */
+
+function applyFiltersAndRender() {
+  const term = document.getElementById("searchBox").value.toLowerCase();
+
+  // Filter by search term
+  let filtered = Object.entries(data).filter(([cid, u]) =>
+    cid.toLowerCase().includes(term) ||
+    (u.fullName || '').toLowerCase().includes(term) ||
+    (u.windowsId || '').toLowerCase().includes(term) ||
+    (u.email || '').toLowerCase().includes(term)
+  );
+
+  // Filter by status
+  if (currentFilter !== 'all') {
+    filtered = filtered.filter(([cid, u]) => getStatus(u.expiry) === currentFilter);
+  }
+
+  // Sort
+  if (currentSort.field) {
+    filtered.sort((a, b) => {
+      const valA = (currentSort.field === 'cid' ? a[0] : (a[1][currentSort.field] || '')).toString().toLowerCase();
+      const valB = (currentSort.field === 'cid' ? b[0] : (b[1][currentSort.field] || '')).toString().toLowerCase();
+      return currentSort.asc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+    });
+  }
+
+  sortedData = filtered;
+  renderGrid();
+  document.getElementById('recordCount').textContent = `${filtered.length} of ${Object.keys(data).length} records`;
+}
+
+window.setFilter = (filter, el) => {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-badge').forEach(b => b.classList.remove('active-filter'));
+  el.classList.add('active-filter');
+  applyFiltersAndRender();
+};
+
+window.sortTable = (field) => {
+  // Toggle sort direction
+  if (currentSort.field === field) {
+    currentSort.asc = !currentSort.asc;
+  } else {
+    currentSort.field = field;
+    currentSort.asc = true;
+  }
+
+  // Update header styling
+  document.querySelectorAll('th').forEach(th => th.classList.remove('sorted'));
+  const th = document.getElementById(`th-${field}`);
+  if (th) th.classList.add('sorted');
+
+  applyFiltersAndRender();
+};
+
+/* ==============================
+   SEARCH
+   ============================== */
+
+const searchBox = document.getElementById("searchBox");
+const clearBtn = document.getElementById("clearSearch");
+
+searchBox.addEventListener("input", () => {
+  clearBtn.classList.toggle('visible', searchBox.value.length > 0);
+  applyFiltersAndRender();
+});
+
+clearBtn.addEventListener("click", () => {
+  searchBox.value = '';
+  clearBtn.classList.remove('visible');
+  applyFiltersAndRender();
+  searchBox.focus();
+});
+
+/* ==============================
+   RENDER TABLE
+   ============================== */
 
 function renderGrid() {
   const tbody = document.getElementById("usersTable");
   tbody.innerHTML = "";
-  sortedData.forEach(([cid, u]) => {
-    const expired = new Date() > new Date(u.expiry);
+
+  if (sortedData.length === 0) {
+    const isSearching = document.getElementById("searchBox").value || currentFilter !== 'all';
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="7">
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="bi ${isSearching ? 'bi-search' : 'bi-database-x'}"></i>
+            </div>
+            <h6 class="fw-bold text-muted">${isSearching ? 'No matching records' : 'Registry Empty'}</h6>
+            <p class="text-muted small mb-3">${isSearching ? 'Try adjusting your search or filters.' : 'No licenses have been provisioned yet.'}</p>
+            ${!isSearching ? '<button class="btn btn-provision btn-sm" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="bi bi-plus-lg me-1"></i>Create First Entry</button>' : ''}
+          </div>
+        </td>
+      </tr>`;
+    return;
+  }
+
+  sortedData.forEach(([cid, u], index) => {
+    const status = getStatus(u.expiry);
+    const statusLabel = status === 'active' ? 'Active' : status === 'expiring' ? 'Expiring' : 'Expired';
+    const isEdited = editedRows[cid] ? 'row-edited' : '';
+
     const row = document.createElement("tr");
     row.id = `row-${cid}`;
+    row.className = `${isEdited}`;
+    row.style.animationDelay = `${index * 0.02}s`;
     row.innerHTML = `
-      <td class="fw-bold text-muted">${cid}</td>
-      <td contenteditable="true" oninput="trackEdit('${cid}','windowsId',this.innerText)" class="font-monospace text-primary">${u.windowsId}</td>
-      <td contenteditable="true" oninput="trackEdit('${cid}','fullName',this.innerText)">${u.fullName}</td>
-      <td contenteditable="true" oninput="trackEdit('${cid}','email',this.innerText)">${u.email}</td>
-      <td><input type="date" value="${u.expiry}" class="form-control form-control-sm border-0" onchange="trackEdit('${cid}','expiry',this.value)"></td>
-      <td><span class="badge ${expired ? 'bg-danger' : 'bg-success'} rounded-pill">${expired ? 'Expired' : 'Active'}</span></td>
-      <td class="text-end">
-        <button class="btn btn-sm btn-success me-1" onclick="saveEdit('${cid}')" id="btn-${cid}"><i class="bi bi-cloud-arrow-up"></i> Save</button>
-        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser('${cid}')"><i class="bi bi-trash"></i></button>
+      <td><span class="cid-badge">${cid}</span></td>
+      <td contenteditable="true" oninput="trackEdit('${cid}','windowsId',this.innerText)" class="win-id">${u.windowsId || ''}</td>
+      <td contenteditable="true" oninput="trackEdit('${cid}','fullName',this.innerText)" class="fw-medium">${u.fullName || ''}</td>
+      <td contenteditable="true" oninput="trackEdit('${cid}','email',this.innerText)" class="text-muted">${u.email || ''}</td>
+      <td><input type="date" value="${u.expiry || ''}" class="date-input" onchange="trackEdit('${cid}','expiry',this.value)"></td>
+      <td>
+        <span class="status-badge ${status}">
+          <span class="status-dot"></span>
+          ${statusLabel}
+        </span>
       </td>
-    `;
+      <td class="text-end">
+        <div class="d-flex gap-1 justify-content-end">
+          <button class="btn-action btn-save-row" onclick="saveEdit('${cid}')" id="btn-${cid}" title="Save changes">
+            <i class="bi bi-check-lg"></i>
+          </button>
+          <button class="btn-action btn-delete-row" onclick="deleteUser('${cid}')" title="Delete entry">
+            <i class="bi bi-trash3"></i>
+          </button>
+        </div>
+      </td>`;
     tbody.appendChild(row);
   });
 }
 
+/* ==============================
+   TRACK EDITS
+   ============================== */
+
 window.trackEdit = (cid, field, value) => {
   if (!editedRows[cid]) editedRows[cid] = {};
   editedRows[cid][field] = value.trim();
-  document.getElementById(`row-${cid}`).classList.add("row-edited");
+  const row = document.getElementById(`row-${cid}`);
+  if (row) row.classList.add("row-edited");
 };
+
+/* ==============================
+   SAVE EDIT
+   ============================== */
 
 window.saveEdit = async (cid) => {
-  if (!editedRows[cid]) return;
-
-  // 1. Ask for confirmation
-  if (!confirm(`Commit modifications for registry entry ${cid}?`)) return;
-
-  const btn = document.getElementById(`btn-${cid}`);
-  const originalHtml = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span>`;
-
-  try {
-    await update(ref(db, `licensed_users/${cid}`), editedRows[cid]);
-    delete editedRows[cid];
-    
-    // 2. Show Success Toast
-    const toast = new bootstrap.Toast(document.getElementById('successToast'));
-    toast.show();
-    
-    loadRegistry();
-  } catch (e) {
-    alert("Error saving record: " + e.message);
-    btn.disabled = false;
-    btn.innerHTML = originalHtml;
+  if (!editedRows[cid]) {
+    showToast('error', 'No changes detected for ' + cid);
+    return;
   }
+
+  showConfirm(
+    'Save Changes',
+    `Commit modifications for registry entry ${cid}?`,
+    'warning',
+    async () => {
+      const btn = document.getElementById(`btn-${cid}`);
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="spinner-border spinner-border-sm" style="width:12px;height:12px;"></span>`;
+      }
+      try {
+        await update(ref(db, `licensed_users/${cid}`), editedRows[cid]);
+        delete editedRows[cid];
+        showToast('success', `Registry entry ${cid} updated successfully.`);
+      } catch (e) {
+        showToast('error', 'Error saving: ' + e.message);
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<i class="bi bi-check-lg"></i>`;
+        }
+      }
+    }
+  );
 };
 
-window.deleteUser = async (cid) => {
-  if (confirm(`Revoke access for ${cid}?`)) {
-    await remove(ref(db, `licensed_users/${cid}`));
-    loadRegistry();
-  }
+/* ==============================
+   DELETE USER
+   ============================== */
+
+window.deleteUser = (cid) => {
+  const userName = data[cid]?.fullName || cid;
+  showConfirm(
+    'Revoke Access',
+    `Permanently delete "${userName}" (${cid}) from the registry?`,
+    'danger',
+    async () => {
+      try {
+        await remove(ref(db, `licensed_users/${cid}`));
+        delete editedRows[cid];
+        showToast('success', `${cid} removed from registry.`);
+      } catch (e) {
+        showToast('error', 'Error deleting: ' + e.message);
+      }
+    }
+  );
 };
+
+/* ==============================
+   CREATE USER (with validation)
+   ============================== */
 
 window.createNewUser = async () => {
-  const cid = document.getElementById("newCid").value;
-  if (!cid) return alert("CID required");
+  const cidInput = document.getElementById("newCid");
+  const winIdInput = document.getElementById("newWinId");
+  const nameInput = document.getElementById("newName");
+  const emailInput = document.getElementById("newEmail");
+  const expiryInput = document.getElementById("newExpiry");
+  const createBtn = document.getElementById("createBtn");
+
+  // Clear previous validations
+  [cidInput, winIdInput, nameInput, emailInput, expiryInput].forEach(el => el.classList.remove('is-invalid'));
+  document.querySelectorAll('.validation-msg').forEach(el => el.classList.remove('show'));
+
+  let valid = true;
+
+  // CID validation
+  if (!cidInput.value.trim()) {
+    cidInput.classList.add('is-invalid');
+    document.getElementById('cidError').textContent = 'CID is required.';
+    document.getElementById('cidError').classList.add('show');
+    valid = false;
+  } else if (data[cidInput.value.trim()]) {
+    cidInput.classList.add('is-invalid');
+    document.getElementById('cidError').innerHTML = '<i class="bi bi-exclamation-circle me-1"></i>CID already exists in the registry.';
+    document.getElementById('cidError').classList.add('show');
+    valid = false;
+  }
+
+  // Windows ID validation
+  if (!winIdInput.value.trim()) {
+    winIdInput.classList.add('is-invalid');
+    document.getElementById('winIdError').classList.add('show');
+    valid = false;
+  }
+
+  // Name validation
+  if (!nameInput.value.trim()) {
+    nameInput.classList.add('is-invalid');
+    document.getElementById('nameError').classList.add('show');
+    valid = false;
+  }
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+    emailInput.classList.add('is-invalid');
+    document.getElementById('emailError').classList.add('show');
+    valid = false;
+  }
+
+  // Expiry validation
+  if (!expiryInput.value) {
+    expiryInput.classList.add('is-invalid');
+    document.getElementById('expiryError').classList.add('show');
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  // Proceed
+  const cid = cidInput.value.trim();
   const payload = {
-    windowsId: document.getElementById("newWinId").value,
-    fullName: document.getElementById("newName").value,
-    email: document.getElementById("newEmail").value,
-    expiry: document.getElementById("newExpiry").value
+    windowsId: winIdInput.value.trim(),
+    fullName: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    expiry: expiryInput.value
   };
-  await set(ref(db, `licensed_users/${cid}`), payload);
-  bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
-  loadRegistry();
+
+  createBtn.disabled = true;
+  createBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span> Creating...`;
+
+  try {
+    await set(ref(db, `licensed_users/${cid}`), payload);
+    bootstrap.Modal.getInstance(document.getElementById('addUserModal')).hide();
+
+    // Reset form
+    [cidInput, winIdInput, nameInput, emailInput, expiryInput].forEach(el => { el.value = ''; el.classList.remove('is-invalid'); });
+    document.querySelectorAll('.validation-msg').forEach(el => el.classList.remove('show'));
+
+    showToast('success', `${cid} provisioned successfully.`);
+  } catch (e) {
+    showToast('error', 'Error creating entry: ' + e.message);
+  } finally {
+    createBtn.disabled = false;
+    createBtn.innerHTML = `<i class="bi bi-plus-circle me-1"></i>Create Entry`;
+  }
 };
+
+// Reset modal form when closed
+document.getElementById('addUserModal').addEventListener('hidden.bs.modal', () => {
+  ['newCid','newWinId','newName','newEmail','newExpiry'].forEach(id => {
+    const el = document.getElementById(id);
+    el.value = '';
+    el.classList.remove('is-invalid');
+  });
+  document.querySelectorAll('.validation-msg').forEach(el => el.classList.remove('show'));
+});
+
+/* ==============================
+   STATS
+   ============================== */
 
 function updateStats() {
   const vals = Object.values(data);
-  const expiredCount = vals.filter(u => new Date() > new Date(u.expiry)).length;
-  document.getElementById("totalLicenses").innerText = vals.length;
-  document.getElementById("activeLicenses").innerText = vals.length - expiredCount;
-  document.getElementById("expiredLicenses").innerText = expiredCount;
+  const total = vals.length;
+  const expiredCount = vals.filter(u => getStatus(u.expiry) === 'expired').length;
+  const expiringCount = vals.filter(u => getStatus(u.expiry) === 'expiring').length;
+  const activeCount = total - expiredCount - expiringCount;
+
+  animateCounter('totalLicenses', total);
+  animateCounter('activeLicenses', activeCount);
+  animateCounter('expiringSoon', expiringCount);
+  animateCounter('expiredLicenses', expiredCount);
 }
 
-document.getElementById("searchBox").addEventListener("input", (e) => {
-  const term = e.target.value.toLowerCase();
-  sortedData = Object.entries(data).filter(([cid, u]) => 
-    cid.toLowerCase().includes(term) || u.fullName.toLowerCase().includes(term) || u.windowsId.toLowerCase().includes(term)
-  );
-  renderGrid();
-});
+function animateCounter(id, target) {
+  const el = document.getElementById(id);
+  const current = parseInt(el.textContent) || 0;
+  if (current === target) { el.textContent = target; return; }
 
-window.sortTable = (field) => {
-  sortedData.sort((a,b) => (a[1][field] || a[0]).toString().localeCompare((b[1][field] || b[0]).toString()));
-  renderGrid();
+  const duration = 400;
+  const startTime = performance.now();
+
+  function step(timestamp) {
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(current + (target - current) * eased);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* ==============================
+   EXPORT CSV
+   ============================== */
+
+window.exportCSV = () => {
+  if (sortedData.length === 0) {
+    showToast('error', 'No data to export.');
+    return;
+  }
+
+  const headers = ['CID', 'Windows ID', 'Full Name', 'Email', 'Expiry', 'Status'];
+  const rows = sortedData.map(([cid, u]) => [
+    cid,
+    u.windowsId || '',
+    u.fullName || '',
+    u.email || '',
+    u.expiry || '',
+    getStatus(u.expiry).toUpperCase()
+  ]);
+
+  let csv = headers.join(',') + '\n';
+  rows.forEach(row => {
+    csv += row.map(cell => `"${(cell || '').replace(/"/g, '""')}"`).join(',') + '\n';
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `AuditX_Registry_${new Date().toISOString().slice(0,10)}.csv`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+
+  showToast('success', `Exported ${rows.length} records to CSV.`);
 };
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</script>
 </body>
 </html>
