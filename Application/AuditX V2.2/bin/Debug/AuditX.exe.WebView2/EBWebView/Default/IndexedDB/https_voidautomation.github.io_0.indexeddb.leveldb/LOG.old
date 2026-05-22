@@ -1,5 +1,0 @@
-2026/03/16-13:52:54.361 51cc Reusing MANIFEST D:\Development\Automation\AuditX\bin\Debug\AuditX.exe.WebView2\EBWebView\Default\IndexedDB\https_voidautomation.github.io_0.indexeddb.leveldb/MANIFEST-000001
-2026/03/16-13:52:54.362 51cc Recovering log #58
-2026/03/16-13:52:54.362 51cc Reusing old log D:\Development\Automation\AuditX\bin\Debug\AuditX.exe.WebView2\EBWebView\Default\IndexedDB\https_voidautomation.github.io_0.indexeddb.leveldb/000058.log 
-2026/03/16-13:52:54.362 51cc Delete type=2 #56
-2026/03/16-13:52:54.369 7a0 Manual compaction at level-0 from '\x00\x13\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x14\x00\x00\x00' @ 0 : 0; will stop at (end)
