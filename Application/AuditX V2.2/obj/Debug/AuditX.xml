@@ -1,0 +1,385 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AuditX
+</name>
+</assembly>
+<members>
+<member name="T:AuditX.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.AVSA_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AuditX.My.Resources.Resources.settings__1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:AuditX.Home.AddLogRow(System.String,System.String,System.String,System.String)">
+ <summary>
+ Adds a row with status-based coloring
+ </summary>
+</member>
+<member name="M:AuditX.Home.txtFilter_TextChanged(System.Object,System.EventArgs)">
+ <summary>
+ Filter logs dynamically
+ </summary>
+</member>
+<member name="M:AuditX.Home.InitializeListView">
+ <summary>
+ Configures the ListViewDiagnostics control columns and appearance.
+ Only needs to run once; guarded by aboutLoaded flag upstream.
+ </summary>
+</member>
+<member name="M:AuditX.Home.PopulateDiagnosticsListView(System.Collections.Generic.Dictionary{System.String,System.String})">
+ <summary>
+ Clears and repopulates the diagnostics ListView from the provided dictionary.
+ </summary>
+</member>
+<member name="M:AuditX.Home.GetDiagnosticData">
+ <summary>
+ Collects application, runtime, hardware, and health diagnostic data.
+ Designed to run safely on a background thread.
+ </summary>
+</member>
+<member name="M:AuditX.Home.BuildDiagnosticReport">
+ <summary>
+ Builds a formatted diagnostic report string from the current ListView contents.
+ Shared by both Copy and Export actions to eliminate duplication.
+ </summary>
+</member>
+<member name="M:AuditX.Home.BuildResultTable(System.Data.DataTable,System.DateTime,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Builds the filtered result DataTable from raw USR02 data.
+ FIX: Handles ERDAT = "00000000", blank USTYP, and removed
+      the 15-day creation filter that was silently dropping users.
+ </summary>
+</member>
+<member name="M:AuditX.Home.BuildMultiSystemResultTable(System.Collections.Generic.Dictionary{System.String,System.Data.DataTable},System.Collections.Generic.List{System.String},System.DateTime,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+ <summary>
+ Builds a cross-system merged result table.
+ FIX: Each system's data is read independently using its own
+      DataRow — no column name conflicts between systems.
+      A user appears if they pass filters in AT LEAST ONE system.
+ </summary>
+</member>
+<member name="M:AuditX.SAPConnection.Shutdown">
+ <summary>
+ FIX: Safely dispose _db even if Dispose throws
+ </summary>
+</member>
+<member name="M:AuditX.SAPConnection.GetParameters(System.String)">
+ <summary>
+ FIX: Added required field validation before building parameters
+ </summary>
+</member>
+<member name="T:AuditX.SAPSystemDatabase">
+ <summary>
+ Handles all SQLite database operations for SAP System configurations.
+ Uses System.Data.SQLite which fully supports Any CPU on .NET Framework 4.8
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.#ctor(System.String)">
+ <summary>
+ Initializes the database helper and ensures schema exists.
+ </summary>
+ <param name="dbFileName">SQLite database file name (default: sap_systems.db)</param>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.InitializeDatabase">
+ <summary>
+ Creates the database schema if it does not already exist.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.GetCreateTableScript">
+ <summary>
+ Returns the DDL script to create the SapSystems table.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.GetAllSystems">
+ <summary>
+ Retrieves all SAP systems from the database.
+ Passwords are returned in their encrypted (stored) form.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.GetSystem(System.String)">
+ <summary>
+ Retrieves a single SAP system by name.
+ Returns Nothing if not found.
+ Password is returned in encrypted (stored) form.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.SystemExists(System.String)">
+ <summary>
+ Checks whether a system name already exists in the database.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.InsertSystem(System.String,AuditX.SAPSystem)">
+ <summary>
+ Inserts a new SAP system. Password must already be encrypted.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.UpdateSystem(System.String,System.String,AuditX.SAPSystem)">
+ <summary>
+ Updates an existing SAP system.
+ Handles rename atomically via a transaction.
+ Password must already be encrypted.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.DeleteSystem(System.String)">
+ <summary>
+ Deletes a SAP system by name.
+ Returns True if a record was deleted.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.GetSystemCount">
+ <summary>
+ Returns the total count of SAP systems stored in the database.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.AddSystemParameters(System.Data.SQLite.SQLiteCommand,System.String,AuditX.SAPSystem)">
+ <summary>
+ Adds standard SAP system parameters to a SQLite command.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.ValidateSystemArguments(System.String,AuditX.SAPSystem)">
+ <summary>
+ Validates that system name and system object are not null or empty.
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.SanitizeSystemNumber(System.String)">
+ <summary>
+ Ensures SystemNumber is stored as exactly 2 numeric digits.
+ "0" → "00", "2" → "02", "00" → "00"
+ </summary>
+</member>
+<member name="M:AuditX.SAPSystemDatabase.MigrateSystemNumbers">
+ <summary>
+ One-time migration: ensures all stored SystemNumber values
+ are exactly 2 digits. Safe to call on every startup.
+ </summary>
+</member>
+<member name="M:AuditX.SecurityHelpers.EncryptString(System.String)">
+ <summary>
+ Encrypts a plaintext string using DPAPI (CurrentUser). Returns base64 ciphertext.
+ </summary>
+</member>
+<member name="M:AuditX.SecurityHelpers.DecryptString(System.String)">
+ <summary>
+ Attempts to decrypt a base64 ciphertext previously created with <see cref="M:AuditX.SecurityHelpers.EncryptString(System.String)"/>.
+ If decryption fails (value was plain text or corrupted) the original value is returned.
+ </summary>
+</member>
+<member name="M:AuditX.MultiSystemSelectionForm.S(System.Int32)">
+ <summary>
+ Scales a pixel value by the current DPI factor.
+ </summary>
+</member>
+<member name="M:AuditX.MultiSystemSelectionForm.DetectDpi">
+ <summary>
+ Detects DPI from the current screen and stores scale factor.
+ </summary>
+</member>
+<member name="M:AuditX.MultiSystemSelectionForm.SF(System.String,System.Single,System.Drawing.FontStyle)">
+ <summary>
+ Returns a DPI-scaled Font.
+ </summary>
+</member>
+<member name="F:AuditX.RFCSettingsForm._systems">
+ <summary>In-memory cache of all loaded SAP systems with decrypted passwords.</summary>
+</member>
+<member name="F:AuditX.RFCSettingsForm._db">
+ <summary>Database access layer.</summary>
+</member>
+<member name="F:AuditX.RFCSettingsForm._isEditing">
+ <summary>Tracks whether the form is currently in Add or Edit mode.</summary>
+</member>
+<member name="F:AuditX.RFCSettingsForm._originalName">
+ <summary>Holds the original system name before an edit or rename operation.</summary>
+</member>
+<member name="F:AuditX.RFCSettingsForm._statusCts">
+ <summary>Background cancellation for status refresh.</summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.InitializeStatusGrid">
+ <summary>
+ Initializes the dgvSystemStatus DataGridView columns and appearance.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.LoadSystems">
+ <summary>
+ Loads all systems from the SQLite database into the in-memory cache
+ and refreshes the UI combo box and status grid.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.RefreshComboBox(System.String)">
+ <summary>
+ Repopulates the combo box from the in-memory systems dictionary.
+ </summary>
+</member>
+<member name="T:AuditX.RFCSettingsForm.SystemStatusRow">
+ <summary>
+ Holds one row of data for the system status grid.
+ Uses Public Sub New() and Properties for BindingList compatibility.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.PopulateStatusGrid">
+ <summary>
+ Builds the status grid rows from the in-memory systems dictionary.
+ All rows start with Status = "Checking..." until background ping completes.
+ CRITICAL: Always sets DataSource = Nothing before clearing or repopulating.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.UpdateSystemStatusRow(System.String,System.Boolean,System.DateTime)">
+ <summary>
+ Updates the Status and LastChecked columns for a specific system row.
+ Modifies the BindingList items directly — the grid auto-refreshes.
+ Must be called on the UI thread.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.ApplyRowStyles">
+ <summary>
+ Applies alternating row styles to rows that have not been coloured by status check.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.UpdateStatusSummary">
+ <summary>
+ Updates the summary label below the status grid.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.CancelStatusRefresh">
+ <summary>
+ Cancels any in-progress status refresh.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.StartStatusRefresh">
+ <summary>
+ Starts a background task that pings each configured SAP system
+ and updates the status grid row by row as results come in.
+ </summary>
+</member>
+<member name="M:AuditX.RFCSettingsForm.PingSystem(System.String,AuditX.SAPSystem)">
+ <summary>
+ Attempts to ping a single SAP system using a temporary destination config.
+ Returns True if the ping succeeds.
+ Called from a background thread.
+ </summary>
+</member>
+<member name="T:AuditX.RFCSettingsForm.SingleDestinationConfig">
+ <summary>
+ Temporary IDestinationConfiguration used only during connection test.
+ </summary>
+</member>
+<member name="P:AuditX.ITGC18.ParameterRule.AcceptedStringValues">
+ <summary>
+ Optional list of accepted string values (e.g., "0", "false", "off")
+ If populated, these are checked directly BEFORE numeric comparison.
+ Used for parameters like sapgui/user_scripting that may return TRUE/FALSE or 1/0
+ </summary>
+</member>
+<member name="M:AuditX.ITGC18.CaptureSAPWindow">
+ <summary>
+ Captures the SAP window screenshot
+ </summary>
+</member>
+<member name="M:AuditX.ITGC18.ReadCurrentValueViaOCR(System.String)">
+ <summary>
+ Reads Current Value using OCR by capturing the screen and parsing
+ </summary>
+</member>
+<member name="M:AuditX.ITGC18.ParseCurrentValueFromOcr(System.String)">
+ <summary>
+ Enhanced parser - handles multi-line OCR output
+ </summary>
+</member>
+<member name="M:AuditX.FileUtils.GetUniqueFileName(System.String,System.String)">
+ <summary>
+ Returns a unique file name by appending (1), (2), etc., before the extension if needed.
+ </summary>
+ <param name="basePath">The folder where the file should be saved</param>
+ <param name="fileNameWithExt">File name with extension (e.g., "Report.docx")</param>
+ <returns>Full file path with unique name</returns>
+</member>
+<member name="M:AuditX.MouseHoverHandler.ApplyHoverEffect(System.Windows.Forms.Control,System.Drawing.Color,System.Windows.Forms.Cursor,System.Drawing.Size)">
+ <summary>
+ Applies hover effect to a control.
+ Includes background color, cursor, optional size increase.
+ </summary>
+ <param name="ctrl">Control to apply hover effect to</param>
+ <param name="hoverBack">Background color on hover (default: LightBlue)</param>
+ <param name="hoverCursor">Cursor on hover (default: Hand)</param>
+ <param name="enlargeSize">Optional size increase (e.g., New Size(10, 5))</param>
+</member>
+<member name="M:AuditX.ResponsiveModule.MakeResponsive(System.Windows.Forms.Form,System.Int32,System.Int32)">
+ <summary>
+ Call this in Form_Load - Makes form fully responsive
+ </summary>
+</member>
+<member name="M:AuditX.ResponsiveModule.ResetResponsive(System.Windows.Forms.Form)">
+ <summary>
+ Call this after dynamically adding/removing controls
+ </summary>
+</member>
+<member name="M:AuditX.ResponsiveModule.Exclude(System.Windows.Forms.Form,System.Windows.Forms.Control)">
+ <summary>
+ Exclude a control from responsive scaling
+ </summary>
+</member>
+<member name="M:AuditX.ResponsiveModule.GetScale(System.Windows.Forms.Form)">
+ <summary>
+ Get current scale of a form
+ </summary>
+</member>
+<member name="M:AuditX.ResponsiveModule.HandleSpecial(System.Windows.Forms.Control,System.Single)">
+ <summary>
+ Handle DataGridView, ListView columns etc.
+ </summary>
+</member>
+<member name="M:AuditX.Logger.InitializeLog(System.String)">
+ <summary>
+ Initializes the log file path with control ID and current user
+ </summary>
+ <param name="ctrlID">Control ID like ITGC01</param>
+</member>
+<member name="M:AuditX.Logger.LogMessage(System.String,System.Boolean)">
+ <summary>
+ Writes a message to the log file with timestamp
+ </summary>
+ <param name="message">The log message</param>
+ <param name="success">True for success, False for error</param>
+</member>
+<member name="M:AuditX.Logger.LogException(System.Exception,System.String)">
+ <summary>
+ Logs an exception with full details (message, source, stacktrace)
+ </summary>
+ <param name="ex">The exception object</param>
+ <param name="customMessage">Optional extra message for context</param>
+</member>
+<member name="M:AuditX.Logger.OpenLogFolder">
+ <summary>
+ Opens the log folder (C:\Void\Logs) in File Explorer
+ </summary>
+</member>
+<member name="M:AuditX.Logger.CreateFolderPath(System.String)">
+ <summary>
+ Ensures the full folder path exists by creating missing directories
+ </summary>
+ <param name="folderPath">Full folder path to create</param>
+</member>
+</members>
+</doc>
